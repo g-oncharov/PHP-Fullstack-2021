@@ -34,6 +34,12 @@
 
 }
 
+.pagination li.page-number a,
+.pagination li.page-number a {
+    background: #fff;
+    color: #2c2f50;
+    transition: background 0.5s, color 0.5s;
+}
 .pagination li.page-number:hover a,
 .pagination li.page-number.active a {
     background: #2c2f50;
