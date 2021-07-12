@@ -1,12 +1,16 @@
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    margin: 0px;
+    margin: 0;
     color: white;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 30px;
 }
+.breadcrumb li a {
+    color: white;
+}
+
 .breadcrumb li:not(:last-child) {
     position: relative;
     margin-right: 60px;

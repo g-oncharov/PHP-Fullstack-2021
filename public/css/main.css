@@ -105,6 +105,21 @@ a:visited {
     overflow: hidden;
 }
 
+.input {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #b3aeab;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.4s;
+}
+.input:hover,
+.input:focus {
+    border-color:  #868380;
+}
 .container {
     width: 1170px;
     margin: 0 auto;
@@ -153,10 +168,12 @@ a:visited {
 }
 .user-navigation ul li {
     text-transform: uppercase;
+}
+.user-navigation ul li a {
     color: #9d92a5;
     transition: color 0.3s;
 }
-.user-navigation ul li:hover {
+.user-navigation ul li a:hover {
     color: #797180;
 }
 .user-navigation ul a{
@@ -204,11 +221,14 @@ a:visited {
 .footer__categories li,
 .footer__about li {
     padding: 10px 0;
+}
+.footer__categories li a,
+.footer__about li a {
     color: #868380;
     transition: color 0.3s;
 }
-.footer__categories li:hover,
-.footer__about li:hover {
+.footer__categories li a:hover,
+.footer__about li a:hover {
     color: #63615f;
 }
 .footer__social-links {
@@ -220,10 +240,10 @@ a:visited {
     justify-content: space-between;
 }
 
-.footer__social-links .social-links__list li {
+.footer__social-links .social-links__list li a {
     color: #a5a5a5;
     transition: color 0.3s;
 }
-.footer__social-links .social-links__list li:hover {
+.footer__social-links .social-links__list li a:hover {
      color: #666666;
 }
