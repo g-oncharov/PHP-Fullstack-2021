@@ -1,3 +1,4 @@
+<?php require_once('../helpers/products-list.php') ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -54,99 +55,39 @@
           <section class="products products--popular">
             <h2>Popular item</h2>
             <ul class="products-list">
+              <?php foreach($productList as $item): ?>
+              <?php extract($item, EXTR_OVERWRITE); ?>
               <li class="product-item">
                 <a href="product.php">
                   <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
+                    <img src="<?= $image ?>" alt="">
                   </div>
                   <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
+                    <p class="product-item__name"><?= $name ?></p>
+                    <p class="product-item__price"><?= $price ?> $</p>
                   </div>
                 </a>
               </li>
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
+              <?php endforeach; ?>
             </ul>
           </section>
           <section class="products products--new">
             <h2>New item</h2>
             <ul class="products-list">
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
-              <li class="product-item">
-                <a href="product.php">
-                  <div class="product-item__image">
-                    <img src="/public/img/item_not_found.png" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name">Item Name</p>
-                    <p class="product-item__price">20 $</p>
-                  </div>
-                </a>
-              </li>
+                <?php foreach($productList as $item): ?>
+                    <?php extract($item, EXTR_OVERWRITE); ?>
+                  <li class="product-item">
+                    <a href="product.php">
+                      <div class="product-item__image">
+                        <img src="<?= $image ?>" alt="">
+                      </div>
+                      <div class="product-item__text">
+                        <p class="product-item__name"><?= $name ?></p>
+                        <p class="product-item__price"><?= $price ?> $</p>
+                      </div>
+                    </a>
+                  </li>
+                <?php endforeach; ?>
             </ul>
           </section>
         </div>
