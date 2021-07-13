@@ -13,18 +13,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/public/css/main.css">
-  <link rel="stylesheet" href="/public/css/cart.css">
   <link rel="stylesheet" href="/public/css/breadcrumb-section.css">
+  <link rel="stylesheet" href="/public/css/login.css">
   <script src="https://use.fontawesome.com/86cb787e9f.js"></script>
 </head>
 <body class="inner-page">
 <header class="header">
   <div class="header__wrapper container">
-    <div class="logo"><a href="index.html"><img src="/public/img/logo.png" alt=""></a></div>
+    <div class="logo"><a href="index.php"><img src="/public/img/logo.png" alt=""></a></div>
     <nav class="nav-bar">
       <div class="site-navigation">
         <ul>
-          <li><a href="products.html">Products</a></li>
+          <li><a href="products.php">Products</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -32,56 +32,45 @@
       <div class="user-navigation">
         <ul>
           <li><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
-          <li><a href="login.html"><i class="fa fa-user fa-lg"></i></a></li>
-          <li><a href="#"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
+          <li><a href="login.php"><i class="fa fa-user fa-lg"></i></a></li>
+          <li><a href="cart.php"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
         </ul>
       </div>
     </nav>
   </div>
 </header>
 <main class="main main--product-page">
-    <div class="container">
-        <nav class="breadcrumb-nav">
-          <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li>Cart</li>
-          </ul>
-        </nav>
-      <section class="cart">
-        <ul class="cart-list">
-          <li class="cart-item">
-            <div>
-              <div class="cart-item__image"><a href="#"><img src="/public/img/item_not_found.png" alt=""></a></div>
-              <div class="cart-item__name"><a href="#">Item</a></div>
-              <div class="cart-item__price"><a href="#">200 $</a></div>
-              <div class="cart-item__delete"><div><i class="fa fa-times" aria-hidden="true"></i></div></div>
-            </div>
-          </li>
-          <li class="cart-item">
-            <div>
-              <div class="cart-item__image"><a href="#"><img src="/public/img/item_not_found.png" alt=""></a></div>
-              <div class="cart-item__name"><a href="#">Item</a></div>
-              <div class="cart-item__price"><a href="#">200 $</a></div>
-              <div class="cart-item__delete"><div><i class="fa fa-times" aria-hidden="true"></i></div></div>
-            </div>
-          </li>
-          <li class="cart-item">
-            <div>
-              <div class="cart-item__image"><a href="#"><img src="/public/img/item_not_found.png" alt=""></a></div>
-              <div class="cart-item__name"><a href="#">Item</a></div>
-              <div class="cart-item__price"><a href="#">200 $</a></div>
-              <div class="cart-item__delete"><div><i class="fa fa-times" aria-hidden="true"></i></div></div>
-            </div>
-          </li>
-        </ul>
-        <div class="order">
-          <div class="order-wrapper">
-            <p>Total: </p><b>1000 $</b>
+  <div class="container">
+    <nav class="breadcrumb-nav">
+      <ul class="breadcrumb">
+        <li><a href="index.php">Home</a></li>
+        <li>Cabinet</li>
+      </ul>
+    </nav>
+    <section class="login-section">
+      <form method="post">
+        <h2>Login</h2>
+        <div class="login-section__input-list">
+          <div class="login-section__input-item">
+            <label for="name"><b>Email</b></label>
+            <input type="text" name="name" class="input" id="name" required>
           </div>
-          <button class="btn btn-buy">Proceed to checkout</button>
+          <div class="login-section__input-item">
+            <label for="pass"><b>Password</b></label>
+            <input type="password" name="pass" class="input" id="pass" required>
+            <span class="forgot-pass"><a href="#">Forgot password?</a></span>
+          </div>
+          <div class="login-section__footer">
+            <button type="submit" class="btn btn-buy">Log in</button>
+            <a href="#" class="register-link">I don`t have an account</a>
+          </div>
         </div>
-      </section>
-    </div>
+
+        <div class="button-wrapper" style="background-color:#f1f1f1">
+        </div>
+      </form>
+    </section>
+  </div>
 </main>
 <footer class="footer">
   <div class="container">
