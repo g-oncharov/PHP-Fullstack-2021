@@ -33,13 +33,14 @@
 }
 
 .product-item__image {
-    height: 260px;
     display: flex;
+    height: 260px;
+    padding-bottom: 20px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     overflow: hidden;
-    padding-bottom: 20px;
+    background-color: #ffffff;
 }
 .product-item__image img {
     height: 100%;
