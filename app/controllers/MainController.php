@@ -1,12 +1,20 @@
 <?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/app/models/Product.php');
 class MainController extends Controller {
+    protected $model;
+    public $view;
 
-    public function actionIndex() {
+    public function __construct()
+    {
         $productList = include_once($_SERVER['DOCUMENT_ROOT'] . '/app/helpers/products-list.php');
-        $params = ['styles' => ['index', 'products-section'], 'productList' => $productList];
-        $this->view->render('index', $params);
+        $this->model = new Product($productList);;
+        $this->view = new View;
     }
 
+    public function actionIndex() {
+        $params = ['styles' => ['index', 'products-section'], 'productList' => $this->model->getProducts()];
+        $this->view->render('index', $params);
+    }
     public function actionProducts() {
         $params = ['styles' => ['products', 'products-section', 'breadcrumb-section', 'pagination-section']];
         $this->view->render('products', $params);
