@@ -1,5 +1,5 @@
 <?php
-$productList = [
+return [
     [
         "id" => 3,
         "name" => "Apple iPhone Xr 128Gb Black",

@@ -21,11 +21,11 @@
 <body>
   <header class="header">
     <div class="header__wrapper container">
-      <div class="logo"><a href="index.php"><img src="/public/img/logo.png" alt=""></a></div>
+      <div class="logo"><a href="/"><img src="/public/img/logo.png" alt=""></a></div>
       <nav class="nav-bar">
         <div class="site-navigation">
           <ul>
-            <li><a href="products.php">Products</a></li>
+            <li><a href="products">Products</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
@@ -33,8 +33,8 @@
         <div class="user-navigation">
           <ul>
             <li><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
-            <li><a href="login.php"><i class="fa fa-user fa-lg"></i></a></li>
-            <li><a href="cart.php"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
+            <li><a href="login"><i class="fa fa-user fa-lg"></i></a></li>
+            <li><a href="cart"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
           </ul>
         </div>
       </nav>
