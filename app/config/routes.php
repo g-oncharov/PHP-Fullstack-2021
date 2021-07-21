@@ -20,4 +20,8 @@ return [
         'controller' => 'main',
         'action' => 'cart',
     ],
+    '404' => [
+        'controller' => 'main',
+        'action' => '404',
+    ],
 ];

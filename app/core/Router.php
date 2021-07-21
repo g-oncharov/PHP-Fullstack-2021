@@ -18,37 +18,31 @@ class Router
     }
     private function error404()
     {
-        $controllerName = 'MainController';
-        $actionName = 'actionError404';
-
-        include_once($_SERVER['DOCUMENT_ROOT'] . '/app/controllers/MainController.php');
-
-        $controllerObject = new $controllerName;
-        $controllerObject->$actionName();
+        header("Location: /404");
     }
 
     public function run()
     {
         $url = $this->getUrl();
-       if (array_key_exists($url,$this->routes)) {
-           extract($this->routes[$url]);
+        if (array_key_exists($url,$this->routes)) {
+            extract($this->routes[$url]);
 
-           $controllerName = ucfirst($controller . 'Controller');
-           $actionName = 'action' . ucfirst($action);
+            $controllerName = ucfirst($controller . 'Controller');
+            $actionName = 'action' . ucfirst($action);
 
-           $controllerFile = $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/'. $controllerName.'.php';
+            $controllerFile = $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/'. $controllerName.'.php';
 
-           if (file_exists($controllerFile)) {
-               include_once($controllerFile);
-           }else {
-               $this->error404();
-           }
+            if (file_exists($controllerFile)) {
+                include_once($controllerFile);
+            }else {
+                $this->error404();
+            }
 
-           $controllerObject = new $controllerName;
-           $controllerObject->$actionName();
-       }else {
-           $this->error404();
-       }
+            $controllerObject = new $controllerName;
+            $controllerObject->$actionName();
+        }else {
+            $this->error404();
+        }
     }
 
 }
