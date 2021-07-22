@@ -1,62 +1,56 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . '/app/models/Product.php');
 class MainController extends Controller {
-    protected $model;
-    public $view;
-    public $authentication;
-    public $session;
+    protected $product;
 
     public function __construct()
     {
         $productList = include_once($_SERVER['DOCUMENT_ROOT'] . '/app/helpers/products-list.php');
-        $this->model = new Product($productList);
-        $this->view = new View;
-        $this->authentication = new Authentication;
-        $this->session = new Session;
+        $this->product = new Product($productList);
     }
 
     public function actionIndex() {
-        $params = ['styles' => ['index', 'products-section'], 'productList' => $this->model->getProducts()];
-        $this->view->render('index', $params);
+        $params = ['styles' => ['index', 'products-section'], 'productList' => $this->product->getProducts()];
+        View::render('index', $params);
     }
     public function actionProducts() {
         $params = ['styles' => ['products', 'products-section', 'pagination-section']];
-        $this->view->render('products', $params);
+        View::render('products', $params);
     }
 
     public function actionProduct() {
         $params = ['styles' => ['product']];
-        $this->view->render('product', $params);
+        View::render('product', $params);
     }
 
     public function actionLogin() {
         $params = ['styles' => ['login']];
-        $this->view->render('login', $params);
+        View::render('login', $params);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             extract($_POST);
-            $this->authentication->auth($name,$pass);
-            if ($this->authentication->isAuth()) {
+            Authentication::auth($name,$pass);
+            if (Authentication::isAuth()) {
                 var_dump('authorized');
-                $this->session->set("auth", true);
-                $this->session->set("login", $name);
+                Session::set("auth", true);
+                Session::set("login", $name);
             }
         }
     }
 
     public function actionSignin() {
         $params = ['styles' => ['signin']];
-        $this->view->render('signin', $params);
+        View::render('signin', $params);
     }
 
     public function actionCart() {
         $params = ['styles' => ['cart']];
-        $this->view->render('cart', $params);
+        View::render('cart', $params);
     }
 
     public function action404() {
         $params = ['styles' => ['404']];
-        $this->view->render('404', $params);
+        View::render('404', $params);
     }
 
 }
