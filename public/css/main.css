@@ -1,3 +1,52 @@
+/* Fonts */
+
+/* Fredoka One */
+@font-face {
+    font-family: 'Fredoka One';
+    src: url("/public/fonts/fredoka-one/fredoka-one-regular.ttf") format("opentype");
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* Quicksand */
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url("/public/fonts/quicksand/quicksand-light.ttf") format("opentype");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url("/public/fonts/quicksand/quicksand-regular.ttf") format("opentype");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url("/public/fonts/quicksand/quicksand-medium.ttf") format("opentype");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url("/public/fonts/quicksand/quicksand-semi-bold.ttf") format("opentype");
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url("/public/fonts/quicksand/quicksand-bold.ttf") format("opentype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* Fonts */
+
 * {
     box-sizing: border-box;
 }
@@ -6,10 +55,11 @@
     color: white;
 }
 body {
-    font-family: "Fredoka One", Arial, sans-serif;
+    font-family: 'Fredoka One', cursive;
     margin: 0;
     padding: 0;
     color: #2c2f50;
+
 }
 .inner-main {
     background-color: #816eca;
