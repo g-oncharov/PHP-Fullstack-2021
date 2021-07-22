@@ -44,6 +44,11 @@ class MainController extends Controller {
         }
     }
 
+    public function actionSignin() {
+        $params = ['styles' => ['signin']];
+        $this->view->render('signin', $params);
+    }
+
     public function actionCart() {
         $params = ['styles' => ['cart']];
         $this->view->render('cart', $params);
