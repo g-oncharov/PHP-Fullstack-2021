@@ -7,8 +7,8 @@
       </ul>
     </nav>
     <section class="login-section">
+      <h2>Login</h2>
       <form method="post">
-        <h2>Login</h2>
         <div class="login-section__input-list">
           <div class="login-section__input-item">
             <label for="name"><b>Email</b></label>
@@ -21,7 +21,7 @@
           </div>
           <div class="login-section__footer">
             <button type="submit" class="btn btn-buy">Log in</button>
-            <a href="#" class="register-link">I don`t have an account</a>
+            <a href="signin" class="register-link">I don`t have an account</a>
           </div>
         </div>
 
