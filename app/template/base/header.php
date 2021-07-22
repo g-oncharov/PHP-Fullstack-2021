@@ -7,18 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Apple Shop</title>
   <link rel="shortcut icon" href="/public/img/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/libs/normalize.min.css">
+  <link rel="stylesheet" href="/public/css/libs/font-awesome.min.css">
   <link rel="stylesheet" href="/public/css/main.css">
     <?php if (!empty($styles)): ?>
         <?php foreach ($styles as $style): ?>
         <link rel="stylesheet" href="/public/css/<?= $style ?>.css">
         <?php endforeach; ?>
     <?php endif; ?>
-  <script src="https://use.fontawesome.com/86cb787e9f.js"></script>
 </head>
 <body>
 <header class="header">
