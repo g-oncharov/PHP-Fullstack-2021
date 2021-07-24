@@ -48,6 +48,11 @@ class MainController extends Controller {
         View::render('cart', $params);
     }
 
+    public function actionSearch() {
+        $params = ['styles' => ['search']];
+        View::render('search', $params);
+    }
+
     public function action404() {
         $params = ['styles' => ['404']];
         View::render('404', $params);
