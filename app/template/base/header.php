@@ -23,16 +23,21 @@
     <nav class="nav-bar">
       <div class="site-navigation">
         <ul>
-          <li><a href="products">Products</a></li>
+          <li><a href="/products">Products</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
       <div class="user-navigation">
         <ul>
-          <li><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
-          <li><a href="login"><i class="fa fa-user fa-lg"></i></a></li>
-          <li><a href="cart"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
+          <div class="user-navigation__input-wrapper">
+            <form action="search">
+              <input type="text" name="search" class="user-navigation__input input" id="search" required>
+              <li class="icon"><button><i class="fa fa-search fa-lg"></i></button></li>
+            </form>
+          </div>
+          <li><a href="/login"><i class="fa fa-user fa-lg"></i></a></li>
+          <li><a href="/cart"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
         </ul>
       </div>
     </nav>
