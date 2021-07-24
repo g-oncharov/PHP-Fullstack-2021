@@ -1,0 +1,38 @@
+.search {
+    padding-bottom: 30px;
+}
+.search h2 {
+    padding-bottom: 0;
+}
+.search .search-result {
+    padding-left: 30px;
+    font-family: "Quicksand", Arial, sans-serif;
+    font-weight: 700;
+    color: white;
+}
+.search-result__text {
+    color: #372C50;
+}
+
+.search-item {
+    background-color: #fff;
+    padding: 20px 60px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.search-item > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+}
+.search-item .search-item__image{
+    width: 200px;
+    height: 145px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.search-item .search-about__btn {
+    font-size: 18px;
+}
