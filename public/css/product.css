@@ -42,6 +42,7 @@
     margin-right: 30px;
 }
 .product-about__description {
+    font-family: "Quicksand", Arial, sans-serif;
     margin-bottom: 50px;
 }
 .product-about__price-wrapper {

@@ -36,7 +36,7 @@
           </div>
         </div>
           <div class="signin-section__footer">
-            <button type="submit" class="btn btn-buy">Sign in</button>
+            <button type="submit" class="btn btn-purple">Sign in</button>
             <a href="signin" class="login-link">I have an account</a>
           </div>
         </div>
