@@ -20,7 +20,7 @@
             <span class="forgot-pass"><a href="#">Forgot password?</a></span>
           </div>
           <div class="login-section__footer">
-            <button type="submit" class="btn btn-buy">Log in</button>
+            <button type="submit" class="btn btn-purple">Log in</button>
             <a href="signin" class="register-link">I don`t have an account</a>
           </div>
         </div>
