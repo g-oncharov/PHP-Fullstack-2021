@@ -23,9 +23,18 @@
     <nav class="nav-bar">
       <div class="site-navigation">
         <ul>
-          <li><a href="/products">Products</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li>
+            <a href="#" class="drop-down-button site-navigation-link site-navigation-link--wide">Categories</a>
+            <ul class="categories-drop-down__list drop-down-list">
+              <li class="categories-drop-down__item"><a href="#">Phones</a></li>
+              <li class="categories-drop-down__item"><a href="#">Watches</a></li>
+              <li class="categories-drop-down__item"><a href="#">Tablets</a></li>
+              <li class="categories-drop-down__item"><a href="#">Notebooks</a></li>
+              <li class="categories-drop-down__item"><a href="#">Accessories</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="site-navigation-link">Contact</a></li>
+          <li><a href="#" class="site-navigation-link">About</a></li>
         </ul>
       </div>
       <div class="user-navigation">
