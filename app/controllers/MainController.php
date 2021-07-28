@@ -14,7 +14,9 @@ class MainController extends Controller {
         View::render('index', $params);
     }
     public function actionProducts() {
-        $params = ['styles' => ['products', 'products-section', 'pagination-section']];
+        $arrUrl = explode('/', $_SERVER['REQUEST_URI']);
+        $category = ucfirst(end($arrUrl));
+        $params = ['styles' => ['products', 'products-section', 'pagination-section'], 'category' => $category];
         View::render('products', $params);
     }
 
