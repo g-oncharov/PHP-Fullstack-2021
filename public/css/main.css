@@ -241,11 +241,13 @@ section > h2 {
 .site-navigation .site-navigation-link {
     display: block;
     padding: 30px 20px;
+    margin: 0;
     color: #372C50;
     background-color: white;
     transition: color 0.3s;
     position: relative;
     z-index: 10;
+    cursor: pointer;
 }
 .site-navigation .site-navigation-link:hover {
     color: #644d8c;
