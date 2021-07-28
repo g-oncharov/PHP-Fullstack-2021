@@ -10,8 +10,8 @@
                 <li class="categories__item"><a href="#">Phones</a></li>
                 <li class="categories__item"><a href="#">Watches</a></li>
                 <li class="categories__item"><a href="#">Tablets</a></li>
+                <li class="categories__item"><a href="#">Notebooks</a></li>
                 <li class="categories__item"><a href="#">Accessories</a></li>
-                <li class="categories__item"><a href="#">TV</a></li>
             </ul>
         </div>
         <div class="footer__about">
@@ -31,5 +31,6 @@
         </div>
     </div>
 </footer>
+<script src="/public/js/dropdown.js"></script>
 </body>
 </html>

@@ -1,31 +1,107 @@
 <?php
+//return [
+//    '' => [
+//        'controller' => 'main',
+//        'action' => 'index',
+//    ],
+//    'products' => [
+//        'controller' => 'main',
+//        'action' => 'products',
+//    ],
+//    'product' => [
+//        'controller' => 'main',
+//        'action' => 'product',
+//    ],
+//    'search/([0-9]+)' => [
+//        'controller' => 'main',
+//        'action' => 'search',
+//    ],
+//    'login' => [
+//        'controller' => 'main',
+//        'action' => 'login',
+//    ],
+//    'signin' => [
+//        'controller' => 'main',
+//        'action' => 'signin',
+//    ],
+//    'cart' => [
+//        'controller' => 'main',
+//        'action' => 'cart',
+//    ],
+//    '404' => [
+//        'controller' => 'main',
+//        'action' => '404',
+//    ],
+//];
+
 return [
-    '' => [
+    [
+        'url' => '',
         'controller' => 'main',
         'action' => 'index',
     ],
-    'products' => [
+    [
+        'url' => 'search/([0-9A-z_]+)',
+        'controller' => 'main',
+        'action' => 'search',
+        'getKey' => 'search',
+        'uniquePage' => true
+    ],
+    [
+        'url' => 'phones',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'watches',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'tablets',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'notebooks',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'accessories',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'products',
         'controller' => 'main',
         'action' => 'products',
     ],
-    'product' => [
+    [
+        'url' => 'product',
         'controller' => 'main',
         'action' => 'product',
     ],
-    'login' => [
+    [
+        'url' => 'login',
         'controller' => 'main',
         'action' => 'login',
     ],
-    'signin' => [
+    [
+        'url' => 'signin',
         'controller' => 'main',
         'action' => 'signin',
     ],
-    'cart' => [
+    [
+        'url' => 'cart',
         'controller' => 'main',
         'action' => 'cart',
     ],
-    '404' => [
+    [
+        'url' => '([0-9A-z_]+)',
         'controller' => 'main',
         'action' => '404',
+        'uniquePage' => true
     ],
+
 ];

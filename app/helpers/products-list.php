@@ -1,12 +1,106 @@
 <?php
 return [
     [
+        "id" => 11,
+        "name" => "Apple Watch 6 40mm Space Gray",
+        "image" => "/public/products/watch-6-40-space-gray.jpg",
+        "description" => "Display: HDR support. True Tone technology; Wide color gamut (P3). 
+             Tactile feedback when pressed. Contrast 2,000,000: 1 (typical). Brightness up to 625 cd / m² (standard).
+             up to 1200 cd / m² when viewing content in HDR format. Oleophobic fingerprint-resistant coating. 
+             Support for simultaneous display of multiple languages and character sets.",
+        "price" => 400,
+        "quantity" => 20
+    ],
+    [
+        "id" => 10,
+        "name" => "Apple Watch Nike 6 40mm Silver",
+        "image" => "/public/products/watch-6-nike-40-silver.webp",
+        "description" => "Display: HDR support. True Tone technology; Wide color gamut (P3). 
+             Tactile feedback when pressed. Contrast 2,000,000: 1 (typical). Brightness up to 625 cd / m² (standard).
+             up to 1200 cd / m² when viewing content in HDR format. Oleophobic fingerprint-resistant coating. 
+             Support for simultaneous display of multiple languages and character sets.",
+        "price" => 400,
+        "quantity" => 20
+    ],
+    [
+        "id" => 9,
+        "name" => "Apple Watch 6 40mm Red",
+        "image" => "/public/products/watch-6-40-red.webp",
+        "description" => "Display: HDR support. True Tone technology; Wide color gamut (P3). 
+         Tactile feedback when pressed. Contrast 2,000,000: 1 (typical). Brightness up to 625 cd / m² (standard).
+         up to 1200 cd / m² when viewing content in HDR format. Oleophobic fingerprint-resistant coating. 
+         Support for simultaneous display of multiple languages and character sets.",
+        "price" => 400,
+        "quantity" => 20
+    ],
+    [
+        "id" => 8,
+        "name" => "Apple Watch SE 40mm Pink",
+        "image" => "/public/products/watch-se-40-pink.webp",
+        "description" => "Display: HDR support. True Tone technology; Wide color gamut (P3). 
+         Tactile feedback when pressed. Contrast 2,000,000: 1 (typical). Brightness up to 625 cd / m² (standard).
+         up to 1200 cd / m² when viewing content in HDR format. Oleophobic fingerprint-resistant coating. 
+         Support for simultaneous display of multiple languages and character sets.",
+        "price" => 400,
+        "quantity" => 20
+    ],
+    [
+        "id" => 7,
+        "name" => "Apple iPhone 12 Pro 256Gb Black",
+        "image" => "/public/products/iphone-12-pro-max-graphite.webp",
+        "description" => "Display: HDR support. True Tone technology; Wide color gamut (P3). 
+         Tactile feedback when pressed. Contrast 2,000,000: 1 (typical). Brightness up to 625 cd / m² (standard).
+         up to 1200 cd / m² when viewing content in HDR format. Oleophobic fingerprint-resistant coating. 
+         Support for simultaneous display of multiple languages and character sets.",
+        "price" => 900,
+        "quantity" => 40
+    ],
+    [
+        "id" => 6,
+        "name" => "Apple iPhone 12 256Gb Black",
+        "image" => "/public/products/iphone-12-black.webp",
+        "description" => "Display: HDR support. True Tone technology; Wide color gamut (P3). 
+         Tactile feedback when pressed. Contrast 2,000,000: 1 (typical). Brightness up to 625 cd / m² (standard).
+         up to 1200 cd / m² when viewing content in HDR format. Oleophobic fingerprint-resistant coating. 
+         Support for simultaneous display of multiple languages and character sets.",
+        "price" => 800,
+        "quantity" => 35
+    ],
+    [
+        "id" => 5,
+        "name" => "Apple iPhone 11 Pro 256Gb Gold",
+        "image" => "/public/products/iphone-11-pro-gold.webp",
+        "description" => "True Tone technology. Wide color gamut (P3). Tactile feedback when pressed. 
+        Brightness up to 625 cd / m² (standard). Oleophobic fingerprint-resistant coating. 
+        Support for simultaneous display of multiple languages and character sets. Splash, 
+        Water and Dust Resistant: IP68 rated according to IEC 60529 (biological immersion in water 
+        up to 2 meters for up to 30 minutes). Face recognition with TrueDepth camera. Fast-charge capable: 
+        Up to 50% charge in 30 minutes with 18W or greater AC adapter (sold separately). Wireless charging 
+        (supports Qi chargers). Charge via power adapter or computer USB port.",
+        "price" => 800,
+        "quantity" => 35
+    ],
+    [
+        "id" => 4,
+        "name" => "Apple iPhone 11 256Gb Black",
+        "image" => "/public/products/iphone-11-black.webp",
+        "description" => "True Tone technology. Wide color gamut (P3). Tactile feedback when pressed. 
+        Brightness up to 625 cd / m² (standard). Oleophobic fingerprint-resistant coating. 
+        Support for simultaneous display of multiple languages and character sets. Splash, 
+        Water and Dust Resistant: IP68 rated according to IEC 60529 (biological immersion in water 
+        up to 2 meters for up to 30 minutes). Face recognition with TrueDepth camera. Fast-charge capable: 
+        Up to 50% charge in 30 minutes with 18W or greater AC adapter (sold separately). Wireless charging 
+        (supports Qi chargers). Charge via power adapter or computer USB port.",
+        "price" => 700,
+        "quantity" => 30
+    ],
+    [
         "id" => 3,
         "name" => "Apple iPhone Xr 128Gb Black",
         "image" => "/public/products/iphone-xr-black.webp",
         "description" => "Edge-to-edge display. The most powerful battery ever in an iPhone. Maximum productivity. 
         Splash and water resistant. Studio quality photos and 4K video. Even more secure with Face ID. The new 
-        iPhone XR. Great update",
+        iPhone XR. Great update.",
         "price" => 600,
         "quantity" => 25
     ],
