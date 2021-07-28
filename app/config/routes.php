@@ -48,6 +48,31 @@ return [
         'uniquePage' => true
     ],
     [
+        'url' => 'phones',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'watches',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'tablets',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'notebooks',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
+        'url' => 'accessories',
+        'controller' => 'main',
+        'action' => 'products'
+    ],
+    [
         'url' => 'products',
         'controller' => 'main',
         'action' => 'products',
@@ -71,11 +96,6 @@ return [
         'url' => 'cart',
         'controller' => 'main',
         'action' => 'cart',
-    ],
-    [
-        'url' => '404',
-        'controller' => 'main',
-        'action' => '404',
     ],
     [
         'url' => '([0-9A-z_]+)',
