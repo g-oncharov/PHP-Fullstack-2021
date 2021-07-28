@@ -24,13 +24,13 @@
       <div class="site-navigation">
         <ul>
           <li>
-            <a href="#" class="drop-down-button site-navigation-link site-navigation-link--wide">Categories</a>
+            <p class="drop-down-button site-navigation-link">Categories</p>
             <ul class="categories-drop-down__list drop-down-list">
-              <li class="categories-drop-down__item"><a href="#">Phones</a></li>
-              <li class="categories-drop-down__item"><a href="#">Watches</a></li>
-              <li class="categories-drop-down__item"><a href="#">Tablets</a></li>
-              <li class="categories-drop-down__item"><a href="#">Notebooks</a></li>
-              <li class="categories-drop-down__item"><a href="#">Accessories</a></li>
+              <li class="categories-drop-down__item"><a href="/phones">Phones</a></li>
+              <li class="categories-drop-down__item"><a href="/watches">Watches</a></li>
+              <li class="categories-drop-down__item"><a href="/tablets">Tablets</a></li>
+              <li class="categories-drop-down__item"><a href="/notebooks">Notebooks</a></li>
+              <li class="categories-drop-down__item"><a href="/accessories">Accessories</a></li>
             </ul>
           </li>
           <li><a href="#" class="site-navigation-link">Contact</a></li>
