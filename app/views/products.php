@@ -5,10 +5,10 @@
         <nav>
           <ul class="breadcrumb">
             <li><a href="/">Home</a></li>
-            <li>Products</li>
+            <li><?= $category?></li>
           </ul>
         </nav>
-        <h2>All item</h2>
+        <h2><?= $category?></h2>
         <ul class="products-list">
           <li class="product-item">
             <a href="product">
