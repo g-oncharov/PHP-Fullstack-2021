@@ -1,5 +1,6 @@
 <?php
-
+namespace Core;
+use Controller;
 class Router
 {
     protected $routes;
@@ -55,13 +56,12 @@ class Router
         $actionName = 'action' . ucfirst($action);
 
         $controllerFile = $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/'. $controllerName.'.php';
-
+        $controllerName = 'Controller\\' . $controllerName;
         if (file_exists($controllerFile)) {
             include_once($controllerFile);
         }else {
             $this->error404();
         }
-
         $controllerObject = new $controllerName;
         $controllerObject->$actionName();
         exit;

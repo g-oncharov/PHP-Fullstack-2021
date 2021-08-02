@@ -1,4 +1,5 @@
 <?php
+namespace Core;
 class View {
 
     public function render(string $layout, array $params, string $template = 'default') {

@@ -1,0 +1,19 @@
+{
+    "name": "leon/mysite.com",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "app/core/",
+            "Controller\\": "app/controllers/",
+            "Model\\": "app/models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexey Goncharov",
+            "email": "80ka96@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^2.3"
+    }
+}
