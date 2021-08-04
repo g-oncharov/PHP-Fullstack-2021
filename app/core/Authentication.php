@@ -5,6 +5,7 @@ class Authentication
 {
     public $authorized;
     public $login;
+    public $session;
 
     /**
      * Authorization check.
@@ -25,6 +26,11 @@ class Authentication
      */
     public function auth(string $login, string $pass):bool {
         if ($login == 'user' && $pass == 'user') {
+            $this->session = new Session();
+            $this->session->start();
+            $this->session->set("auth", true);
+            $this->session->set("login", $login);
+
             $this->login = $login;
             $this->authorized = true;
             return true;

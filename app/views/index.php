@@ -13,15 +13,15 @@
       <section class="products products--popular">
         <h2>Phones</h2>
         <ul class="products-list">
-          <?php foreach($productList as $item): ?>
+          <?php foreach($PhonesList as $item): ?>
           <?php extract($item, EXTR_OVERWRITE); ?>
           <li class="product-item">
-            <a href="product">
+            <a href="/product/<?= $id?>">
               <div class="product-item__image">
-                <img src="/public/products/iphone/<?= $image ?>" alt="">
+                <img src="/public/products/<?= $image ?>" alt="">
               </div>
               <div class="product-item__text">
-                <p class="product-item__name"><?= $name ?></p>
+                <p class="product-item__name"><?= $title ?></p>
                 <p class="product-item__price"><?= $price ?> $</p>
               </div>
             </a>
@@ -32,15 +32,15 @@
       <section class="products products--new">
         <h2>Tablets</h2>
         <ul class="products-list">
-            <?php foreach($productList as $item): ?>
-                <?php extract($item, EXTR_OVERWRITE); ?>
+            <?php foreach($TabletsList as $item): ?>
+            <?php extract($item, EXTR_OVERWRITE); ?>
               <li class="product-item">
-                <a href="product">
+                <a href="/product/<?= $id?>">
                   <div class="product-item__image">
-                    <img src="/public/products/iphone/<?= $image ?>" alt="">
+                    <img src="/public/products/<?= $image ?>" alt="">
                   </div>
                   <div class="product-item__text">
-                    <p class="product-item__name"><?= $name ?></p>
+                    <p class="product-item__name"><?= $title ?></p>
                     <p class="product-item__price"><?= $price ?> $</p>
                   </div>
                 </a>

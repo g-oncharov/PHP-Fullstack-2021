@@ -10,17 +10,14 @@
       <section class="product-about">
         <div class="product-about__wrapper">
           <div class="product-about__image">
-            <img src="/public/img/item_not_found.png" alt="">
+            <img src="/public/products/<?= $image?>" alt="">
+<!--            <img src="/public/img/item_not_found.png" alt="">-->
           </div>
           <div class="product-about__text">
-            <p class="product-about__name">Item</p>
-            <p class="product-about__description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Explicabo, sit! Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Explicabo, sit! Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Explicabo, sit! Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Explicabo, sit!</p>
+            <p class="product-about__name"><?= $title?></p>
+            <p class="product-about__description"><?= $description?></p>
             <div class="product-about__price-wrapper">
-              <p class="product-about__price">200 $</p>
+              <p class="product-about__price"><?= $price?> $</p>
               <button class="product-about__btn btn-purple btn">Add to cart</button>
             </div>
           </div>

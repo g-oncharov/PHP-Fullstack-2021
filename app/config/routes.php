@@ -78,9 +78,10 @@ return [
         'action' => 'products',
     ],
     [
-        'url' => 'product',
+        'url' => 'product/([0-9]+)',
         'controller' => 'main',
         'action' => 'product',
+        'uniquePage' => true
     ],
     [
         'url' => 'login',

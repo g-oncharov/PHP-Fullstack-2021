@@ -10,139 +10,21 @@
         </nav>
         <h2><?= $category?></h2>
         <ul class="products-list">
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="product">
-              <div class="product-item__image">
-                <img src="/public/img/item_not_found.png" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name">Item Name</p>
-                <p class="product-item__price">20 $</p>
-              </div>
-            </a>
-          </li>
-        </ul>
+            <?php foreach($ProductsList as $item): ?>
+              <?php extract($item, EXTR_OVERWRITE); ?>
+              <li class="product-item">
+                <a href="/product/<?= $id?>">
+                  <div class="product-item__image">
+                    <img src="/public/products/<?= $image ?>" alt="">
+                  </div>
+                  <div class="product-item__text">
+                    <p class="product-item__name"><?= $title ?></p>
+                    <p class="product-item__price"><?= $price ?> $</p>
+                  </div>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
       </section>
       <section class="pagination-section">
         <ul class="pagination">
