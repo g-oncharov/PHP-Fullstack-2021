@@ -1,14 +1,10 @@
 <?php
 
+namespace Core;
 class Authentication
 {
     public $authorized;
     public $login;
-
-    public function __construct()
-    {
-        $this->logOut();
-    }
 
     /**
      * Authorization check.

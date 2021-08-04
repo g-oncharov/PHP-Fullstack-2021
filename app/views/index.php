@@ -11,14 +11,14 @@
   <section class="product-section">
     <div class="container">
       <section class="products products--popular">
-        <h2>Popular item</h2>
+        <h2>Phones</h2>
         <ul class="products-list">
           <?php foreach($productList as $item): ?>
           <?php extract($item, EXTR_OVERWRITE); ?>
           <li class="product-item">
             <a href="product">
               <div class="product-item__image">
-                <img src="<?= $image ?>" alt="">
+                <img src="/public/products/iphone/<?= $image ?>" alt="">
               </div>
               <div class="product-item__text">
                 <p class="product-item__name"><?= $name ?></p>
@@ -30,14 +30,14 @@
         </ul>
       </section>
       <section class="products products--new">
-        <h2>New item</h2>
+        <h2>Tablets</h2>
         <ul class="products-list">
             <?php foreach($productList as $item): ?>
                 <?php extract($item, EXTR_OVERWRITE); ?>
               <li class="product-item">
                 <a href="product">
                   <div class="product-item__image">
-                    <img src="<?= $image ?>" alt="">
+                    <img src="/public/products/iphone/<?= $image ?>" alt="">
                   </div>
                   <div class="product-item__text">
                     <p class="product-item__name"><?= $name ?></p>
