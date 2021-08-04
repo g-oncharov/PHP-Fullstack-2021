@@ -35,6 +35,7 @@
 .product-item__image {
     display: flex;
     height: 260px;
+    padding-top: 20px;
     padding-bottom: 20px;
     justify-content: center;
     align-items: center;
@@ -47,14 +48,16 @@
     max-width: none;
 }
 .product-item__text {
-    background-color: rgba(103, 91, 153, 0.15);
+    background-color: #d5d2e4;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 .product-item__name {
     font-family: 'Quicksand', Arial, sans-serif;
     font-weight: 600;
     text-align: center;
     margin: 0;
-    padding: 15px 0;
+    padding: 15px 15px;
 }
 .product-item__price {
     text-align: center;

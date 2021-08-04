@@ -17,6 +17,7 @@
     align-items: center;
     overflow: hidden;
     margin-right: 50px;
+    padding: 60px 0;
 }
 
 .product-about__image img {
