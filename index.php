@@ -1,18 +1,17 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
-//error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
-//use Monolog\Logger;
-//use Monolog\Handler\StreamHandler;
-//
-//$log = new Logger('name');
-//$log->pushHandler(new StreamHandler('log/your.log', Logger::WARNING));
-//
-//// add records to the log
-//$log->warning('Foo');
-//$log->error('Bar');
+include('vendor/autoload.php');
 
+use Framework\Router\Router;
+use Controller\ErrorController;
 
-
-$router = new Core\Router;
-$router->run();
+try {
+    $router = new Router();
+    $router->run();
+    $controller = new $router->controller();
+    $action = $router->action;
+    $controller->$action();
+} catch (Exception $e) {
+    $controller = new ErrorController();
+    $controller->actionCustomError($e);
+}
