@@ -8,12 +8,15 @@ use Framework\Env\Env;
 
 class Db
 {
-    /** @var PDO */
-    public PDO $pdo;
+    /** @var PDO|null */
+    public ?PDO $pdo;
+
+    /** @var PDOException */
+    public PDOException $error;
 
     public function __construct()
     {
-        $dotenv = new Env('App/config/.env');
+        $dotenv = new Env('../App/config/.env');
         $dotenv->load();
 
         $connection = getenv("DB_CONNECTION");
@@ -21,12 +24,14 @@ class Db
         $dbname = getenv("DB_DATABASE");
         $username = getenv("DB_USERNAME");
         $password = getenv("DB_PASSWORD");
+
         try {
             $this->pdo = new PDO("$connection:host=$host;dbname=$dbname", $username, $password);
-            return $this->pdo;
         } catch (PDOException $e) {
-            return $e;
+            $this->error = $e;
+            $this->pdo = null;
         }
+        return $this->pdo;
     }
 
     /**
@@ -37,13 +42,15 @@ class Db
      */
     public function query(string $sql, array $params = [], string $className = 'stdClass'): ?array
     {
-        $sth = $this->pdo->prepare($sql);
-        $result = $sth->execute($params);
+        $result = null;
+        if (!is_null($this->pdo)) {
+            $sth = $this->pdo->prepare($sql);
+            $data = $sth->execute($params);
 
-        if (false === $result) {
-            return null;
+            if ($data) {
+                $result = $sth->fetchAll(PDO::FETCH_CLASS, $className);
+            }
         }
-
-        return $sth->fetchAll(PDO::FETCH_CLASS, $className);
+        return $result;
     }
 }

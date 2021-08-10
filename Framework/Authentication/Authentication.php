@@ -14,10 +14,11 @@ class Authentication
      */
     public function isAuth(): bool
     {
+        $result = false;
         if ($this->authorized) {
-            return true;
+            $result = true;
         }
-        return false;
+        return $result;
     }
 
     /**
@@ -28,6 +29,7 @@ class Authentication
      */
     public function auth(string $login, string $pass): bool
     {
+        $result = false;
         if ($login == 'user' && $pass == 'user') {
             $this->session = new Session();
             $this->session->start();
@@ -36,9 +38,9 @@ class Authentication
 
             $this->login = $login;
             $this->authorized = true;
-            return true;
+            $result = true;
         }
-        return false;
+        return $result;
     }
 
     /**
@@ -46,10 +48,11 @@ class Authentication
      */
     public function getLogin()
     {
+        $result = false;
         if (isset($this->login)) {
-            return $this->login;
+            $result = $this->login;
         }
-        return false;
+        return $result;
     }
 
     /**

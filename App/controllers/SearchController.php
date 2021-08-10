@@ -3,32 +3,24 @@
 namespace Controller;
 
 use Framework\Controller\Controller;
-use Framework\Db\Db;
-use Controller\ErrorController;
+use Framework\Url\Url;
 use Model\Product;
-use PDO;
 
 class SearchController extends Controller
 {
-    protected $product;
-    protected $db;
+    protected Product $product;
+    protected Url $url;
 
     public function __construct()
     {
         parent::__construct();
-        $db = new Db();
-        if ($db->pdo instanceof PDO) {
-            $this->product = new Product();
-        } else {
-            $errorController = new ErrorController();
-            $errorController->actionCustomError($db);
-        }
-        $this->db = $db;
+        $this->product = new Product();
+        $this->url = new Url();
     }
 
-    public function actionSearch()
+    public function search()
     {
-        $result = (string) parent::getLastPartUrl();
+        $result = (string) $this->url->getLastPartUrl();
         $ProductList = $this->product->findByTitle($result);
         $count = count($ProductList);
         $styles = ['search'];

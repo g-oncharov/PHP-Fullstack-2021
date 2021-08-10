@@ -2,11 +2,6 @@
 
 return [
     [
-        'url' => '',
-        'controller' => 'product',
-        'action' => 'index',
-    ],
-    [
         'url' => 'phones',
         'controller' => 'product',
         'action' => 'products'
@@ -39,15 +34,13 @@ return [
     [
         'url' => 'product/([0-9]+)',
         'controller' => 'product',
-        'action' => 'product',
-        'uniquePage' => true
+        'action' => 'product'
     ],
     [
         'url' => 'search/([0-9A-z_-]+)',
         'controller' => 'search',
         'action' => 'search',
-        'getKey' => 'search',
-        'uniquePage' => true
+        'getKey' => 'search'
     ],
     [
         'url' => 'cart',
@@ -65,10 +58,14 @@ return [
         'action' => 'signin',
     ],
     [
+        'url' => '',
+        'controller' => 'product',
+        'action' => 'index',
+    ],
+    [
         'url' => '([0-9A-z_]+)',
         'controller' => 'error',
-        'action' => '404',
-        'uniquePage' => true
+        'action' => '404'
     ],
 
 ];

@@ -7,13 +7,15 @@ use Framework\Db\Db;
 abstract class ActiveRecordEntity
 {
     /** @var int */
-    protected $id;
+    protected int $id;
 
     /** @var string|null */
     protected ?string $createdAt = null;
 
     /** @var string|null */
     protected ?string $updatedAt = null;
+
+    public static Db $db;
 
     /**
      * @return int
@@ -39,20 +41,26 @@ abstract class ActiveRecordEntity
         return $this->updatedAt;
     }
 
+    public function __construct()
+    {
+        self::$db = new Db();
+    }
+
     /**
      * @param int $id
      * @return static|null
      */
     public static function findById(int $id): ?self
     {
-        $db = new Db();
-        $entities = $db->query(
-            'SELECT * FROM `' . static::getTableName() . '` WHERE id=:id;',
+        $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE id=:id;';
+        $entities = self::$db->query(
+            $sql,
             [':id' => $id],
             static::class
         );
         return $entities ? $entities[0] : null;
     }
+
 
     public function __set(string $name, $value)
     {
@@ -68,10 +76,10 @@ abstract class ActiveRecordEntity
     /**
      * @return static[]
      */
-    public static function findAll(): array
+    public static function findAll(): ?array
     {
-        $db = new Db();
-        return $db->query('SELECT * FROM `' . static::getTableName() . '` ORDER BY id DESC;', [], static::class);
+        $sql = 'SELECT * FROM `' . static::getTableName() . '` ORDER BY id DESC;';
+        return self::$db->query($sql, [], static::class);
     }
 
     abstract protected static function getTableName(): string;

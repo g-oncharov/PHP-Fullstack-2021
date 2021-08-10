@@ -9,8 +9,17 @@ class View
     {
         $template = $_SERVER['DOCUMENT_ROOT'] . '/App/views/template/layouts/' . $template . '.php';
         extract($params);
+        $correctParams = true;
         $layout = $_SERVER['DOCUMENT_ROOT'] . '/App/views/' . $layout . '.php';
-        if (file_exists($template)) {
+
+        foreach ($params as $item) {
+            if (is_null($item)) {
+                $correctParams =  false;
+                break;
+            }
+        }
+
+        if (file_exists($template) && $correctParams) {
             ob_start();
             include_once($layout);
             $layout = ob_get_clean();

@@ -13,7 +13,7 @@ class Router
 
     public function __construct()
     {
-        $routesPath = 'App/config/routes.php';
+        $routesPath = '../App/config/routes.php';
         $this->routes = include_once($routesPath);
     }
 
@@ -26,9 +26,8 @@ class Router
 
     public function urlGetRequestParser($str)
     {
-        $delimeter = "/";
-        if ((bool)strrpos($str, $delimeter)) {
-            $array = explode($delimeter, $str);
+        if ((bool)strrpos($str, "/")) {
+            $array = explode("/", $str);
             $str = end($array);
         }
 
@@ -40,32 +39,34 @@ class Router
         $result = false;
 
         foreach ($this->routes as $route) {
-            $uniquePage = false;
             $page = $this->urlGetRequestParser($urlPath);
             extract($route, EXTR_OVERWRITE);
-            if ($uniquePage && !empty($getKey) && $getKey == $page) {
+            if (!empty($getKey) && $getKey == $page) {
                 $result = true;
                 break;
             }
         }
         if ($result) {
-            header("Location: /$action/{$_GET[$getKey]}");
+            $link = "/$action/{$_GET[$getKey]}";
+            header("Location: $link");
         }
     }
 
     private function error404()
     {
         $this->controller = 'Controller\\ErrorController';
-        $this->action = 'action404';
+        $this->action = 'notFound';
     }
 
-    private function parse($controller, $action)
+    private function parse($controller): string
     {
-        $controllerName = 'Controller\\' . ucfirst($controller . 'Controller');
-        $actionName = 'action' . ucfirst($action);
+        return 'Controller\\' . ucfirst($controller . 'Controller');
+    }
 
-        $this->controller = $controllerName;
-        $this->action = $actionName;
+    private function load($controller, $action)
+    {
+        $this->controller = $this->parse($controller);
+        $this->action = $action;
 
         if (
             !class_exists($this->controller)
@@ -79,15 +80,16 @@ class Router
     {
         $urlPath = $this->getUrl();
         $this->isGetRequest($urlPath);
-
+        $result = false;
         foreach ($this->routes as $route) {
-            $uniquePage = false;
             extract($route, EXTR_OVERWRITE);
-            if ($url == $urlPath || preg_match("~$url~", $urlPath) && $uniquePage) {
-                $this->parse($controller, $action);
-                return true;
+            $url = "~$url~";
+            if (preg_match($url, $urlPath)) {
+                $this->load($controller, $action);
+                $result = true;
+                break;
             }
         }
-        return false;
+        return $result;
     }
 }

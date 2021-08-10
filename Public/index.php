@@ -1,6 +1,6 @@
 <?php
 
-include('vendor/autoload.php');
+include('../vendor/autoload.php');
 
 use Framework\Router\Router;
 use Controller\ErrorController;
@@ -13,5 +13,5 @@ try {
     $controller->$action();
 } catch (Exception $e) {
     $controller = new ErrorController();
-    $controller->actionCustomError($e);
+    $controller->customError($e);
 }

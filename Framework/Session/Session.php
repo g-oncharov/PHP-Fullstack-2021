@@ -11,11 +11,12 @@ class Session
      */
     public function start(): bool
     {
+        $result = false;
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
-            return true;
+            $result = true;
         }
-        return false;
+        return $result;
     }
 
     /**
@@ -61,10 +62,11 @@ class Session
      */
     public function contains($key): bool
     {
+        $result = false;
         if (isset($_SESSION[$key])) {
-            return true;
+            $result = true;
         }
-        return  false;
+        return $result;
     }
 
     /**
@@ -152,10 +154,11 @@ class Session
      */
     public function cookieExists(): bool
     {
+        $result = true;
         if (empty($_COOKIE)) {
-            return false;
+            $result = false;
         }
-        return true;
+        return $result;
     }
 
     /**
@@ -166,9 +169,10 @@ class Session
 
     public function sessionExists(): bool
     {
+        $result = true;
         if (empty($_SESSION)) {
-            return false;
+            $result = false;
         }
-        return true;
+        return $result;
     }
 }

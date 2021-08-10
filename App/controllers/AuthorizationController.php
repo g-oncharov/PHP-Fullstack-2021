@@ -7,7 +7,7 @@ use Framework\Authentication\Authentication;
 
 class AuthorizationController extends Controller
 {
-    public $auth;
+    public Authentication $auth;
 
     public function __construct()
     {
@@ -15,7 +15,7 @@ class AuthorizationController extends Controller
         $this->auth = new Authentication();
     }
 
-    public function actionLogin()
+    public function login()
     {
         $params = ['styles' => ['login']];
 
@@ -32,7 +32,7 @@ class AuthorizationController extends Controller
         $this->view->render('login', $params);
     }
 
-    public function actionSignin()
+    public function signin()
     {
         $params = ['styles' => ['signin']];
         $this->view->render('signin', $params);

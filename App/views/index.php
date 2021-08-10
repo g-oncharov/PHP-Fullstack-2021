@@ -13,7 +13,7 @@
       <section class="products products--popular">
         <h2>Phones</h2>
         <ul class="products-list">
-          <?php foreach ($PhonesList as $item) : ?>
+          <?php foreach ($phonesList as $item) : ?>
           <li class="product-item">
             <a href="/product/<?= $item->getId()?>">
               <div class="product-item__image">
@@ -31,7 +31,7 @@
       <section class="products products--new">
         <h2>Tablets</h2>
         <ul class="products-list">
-            <?php foreach ($TabletsList as $item) : ?>
+            <?php foreach ($tabletsList as $item) : ?>
               <li class="product-item">
                 <a href="/product/<?= $item->getId()?>">
                   <div class="product-item__image">

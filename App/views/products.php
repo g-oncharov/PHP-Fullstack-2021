@@ -10,7 +10,7 @@
         </nav>
         <h2><?= $category?></h2>
         <ul class="products-list">
-            <?php foreach ($ProductsList as $item) : ?>
+            <?php foreach ($productsList as $item) : ?>
               <li class="product-item">
                 <a href="/product/<?= $item->getId()?>">
                   <div class="product-item__image">
