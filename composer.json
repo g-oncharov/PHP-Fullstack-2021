@@ -2,9 +2,9 @@
     "name": "leon/mysite.com",
     "autoload": {
         "psr-4": {
-            "Core\\": "app/core/",
-            "Controller\\": "app/controllers/",
-            "Model\\": "app/models/"
+            "Framework\\": "Framework/",
+            "Controller\\": "App/controllers/",
+            "Model\\": "App/models/"
         }
     },
     "authors": [
@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "monolog/monolog": "^2.3",
-        "swiftmailer/swiftmailer": "^6.0"
+        "squizlabs/php_codesniffer": "^3.6",
+        "friendsofphp/php-cs-fixer": "^3.0"
     }
 }
