@@ -71,8 +71,8 @@ class Product extends ActiveRecordEntity
 
         return self::$db->query(
             $sql,
-            [':title' => $title],
-            Product::class
+            Product::class,
+            [':title' => $title]
         );
     }
 
@@ -87,8 +87,8 @@ class Product extends ActiveRecordEntity
 
         return self::$db->query(
             $sql,
-            [':title' => $title],
-            Product::class
+            Product::class,
+            [':title' => $title]
         );
     }
 

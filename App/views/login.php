@@ -11,20 +11,22 @@
       <form method="post">
         <div class="login-section__input-list">
           <div class="login-section__input-item">
-            <label for="name"><b>Email</b></label>
-            <input type="text" name="name" class="input" id="name" required>
+            <label for="email"><b>Email</b></label>
+            <input type="text" name="email" class="input" id="email" required>
           </div>
           <div class="login-section__input-item">
             <label for="pass"><b>Password</b></label>
             <input type="password" name="pass" class="input" id="pass" required>
             <span class="forgot-pass"><a href="#">Forgot password?</a></span>
           </div>
+          <div class="login-section__input-item error-text">
+              <?= $error ?>
+          </div>
           <div class="login-section__footer">
             <button type="submit" class="btn btn-purple">Log in</button>
             <a href="signin" class="register-link">I don`t have an account</a>
           </div>
         </div>
-
         <div class="button-wrapper" style="background-color:#f1f1f1">
         </div>
       </form>

@@ -11,12 +11,12 @@
       <form method="post">
         <div class="signin-section__input-list">
           <div class="signin-section__input-item">
-            <label for="fname"><b>First name</b></label>
-            <input type="text" name="fname" class="input" id="fname" required>
+            <label for="firstName"><b>First name</b></label>
+            <input type="text" name="firstName" class="input" id="firstName" required>
           </div>
           <div class="signin-section__input-item">
-            <label for="lname"><b>Last name</b></label>
-            <input type="text" name="lname" class="input" id="lname" required>
+            <label for="lastName"><b>Last name</b></label>
+            <input type="text" name="lastName" class="input" id="lastName" required>
           </div>
           <div class="signin-section__input-item">
             <label for="email"><b>Email</b></label>
@@ -27,12 +27,19 @@
             <input type="text" name="login" class="input" id="login" required>
           </div>
           <div class="signin-section__input-item">
+            <label for="telephone"><b>Telephone</b></label>
+            <input type="text" name="telephone" class="input" id="telephone" required>
+          </div>
+          <div class="signin-section__input-item">
             <label for="pass"><b>Password</b></label>
             <input type="password" name="pass" class="input" id="pass" required>
           </div>
           <div class="signin-section__input-item">
             <label for="pass2"><b>Confirm Password</b></label>
             <input type="password" name="pass2" class="input" id="pass2" required>
+          </div>
+          <div class="signin-section__input-item error-text">
+            <?= $error ?>
           </div>
         </div>
           <div class="signin-section__footer">

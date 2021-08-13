@@ -4,11 +4,25 @@ namespace Framework\View;
 
 class View
 {
+    protected array $data;
+
+    public function set($key, $value)
+    {
+        $this->data[$key] = $value;
+    }
+
+    public function get($key)
+    {
+        return $this->data[$key];
+    }
 
     public function render(string $layout, array $params, string $template = 'default')
     {
         $template = $_SERVER['DOCUMENT_ROOT'] . '/App/views/template/layouts/' . $template . '.php';
         extract($params);
+        if (!empty($this->data)) {
+            extract($this->data);
+        }
         $correctParams = true;
         $layout = $_SERVER['DOCUMENT_ROOT'] . '/App/views/' . $layout . '.php';
 
