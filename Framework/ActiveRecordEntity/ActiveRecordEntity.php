@@ -55,8 +55,8 @@ abstract class ActiveRecordEntity
         $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE id=:id;';
         $entities = self::$db->query(
             $sql,
-            [':id' => $id],
-            static::class
+            static::class,
+            [':id' => $id]
         );
         return $entities ? $entities[0] : null;
     }
@@ -79,7 +79,7 @@ abstract class ActiveRecordEntity
     public static function findAll(): ?array
     {
         $sql = 'SELECT * FROM `' . static::getTableName() . '` ORDER BY id DESC;';
-        return self::$db->query($sql, [], static::class);
+        return self::$db->query($sql, static::class);
     }
 
     abstract protected static function getTableName(): string;

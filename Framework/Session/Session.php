@@ -26,8 +26,8 @@ class Session
     public function destroy(): void
     {
         session_unset();
-        session_destroy();
         $_SESSION = [];
+        session_destroy();
     }
 
     /**
@@ -37,9 +37,14 @@ class Session
      * @param mixed $value
      * @return void
      */
-    public function set($key, $value): void
+
+    public function set($key, $value, $array = ''): void
     {
-        $_SESSION[$key] = $value;
+        if ($array === '') {
+            $_SESSION[$key] = $value;
+        } else {
+            $_SESSION[$array][$key] = $value;
+        }
     }
 
     /**
@@ -48,9 +53,14 @@ class Session
      * @param mixed $key
      * @return string
      */
-    public function get($key): string
+    public function get($key, $array = ''): ?string
     {
-        return $_SESSION[$key];
+        if ($array === '') {
+            $result = $_SESSION[$key] ?? null;
+        } else {
+            $result = $_SESSION[$array][$key] ?? null;
+        }
+        return $result;
     }
 
 
@@ -60,11 +70,17 @@ class Session
      * @param mixed $key
      * @return bool
      */
-    public function contains($key): bool
+    public function contains($key, $array = ''): bool
     {
         $result = false;
-        if (isset($_SESSION[$key])) {
-            $result = true;
+        if ($array === '') {
+            if (isset($_SESSION[$key])) {
+                $result = true;
+            }
+        } else {
+            if (isset($_SESSION[$array][$key])) {
+                $result = true;
+            }
         }
         return $result;
     }
@@ -76,9 +92,13 @@ class Session
      * @return void
      */
 
-    public function delete($key): void
+    public function delete($key, $array = ''): void
     {
-        unset($_SESSION[$key]);
+        if ($array === '') {
+            unset($_SESSION[$key]);
+        } else {
+            unset($_SESSION[$array][$key]);
+        }
     }
 
     /**

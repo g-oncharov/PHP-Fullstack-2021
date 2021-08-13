@@ -40,7 +40,7 @@ class Db
      * @param string $className
      * @return array|null
      */
-    public function query(string $sql, array $params = [], string $className = 'stdClass'): ?array
+    public function query(string $sql, string $className = 'stdClass', array $params = []): ?array
     {
         $result = null;
         if (!is_null($this->pdo)) {

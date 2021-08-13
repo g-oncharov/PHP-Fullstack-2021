@@ -176,6 +176,12 @@ a:visited {
     margin: 0 auto;
     padding: 0 10px;
 }
+
+.error-text {
+    color: red;
+    font-weight: 500;
+}
+
 .logo {
     height: 80px;
 }

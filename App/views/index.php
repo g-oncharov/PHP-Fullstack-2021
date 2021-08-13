@@ -79,3 +79,27 @@
     </div>
   </section>
 </main>
+<script>
+    const status = function (response) {
+        if (response.status !== 200) {
+            return Promise.reject(new Error(response.statusText))
+        }
+        return Promise.resolve(response)
+    }
+    const json = function (response) {
+        return response.json()
+    }
+
+    fetch('http://www.mocky.io/v2/5944e07213000038025b6f30', {
+        method: 'post',
+        body: 'test=1'
+    })
+        .then(status)
+        .then(json)
+        .then(function (data) {
+            console.log('data', data)
+        })
+        .catch(function (error) {
+            console.log('error', error)
+        })
+</script>

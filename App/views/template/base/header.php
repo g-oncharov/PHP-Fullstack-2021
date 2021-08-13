@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="/Public/css/libs/normalize.min.css">
   <link rel="stylesheet" href="/Public/css/libs/fontAwesome.min.css">
   <link rel="stylesheet" href="/Public/css/main.css">
-    <?php if (!empty($styles)): ?>
-        <?php foreach ($styles as $style): ?>
+    <?php if (!empty($styles)) : ?>
+        <?php foreach ($styles as $style) : ?>
         <link rel="stylesheet" href="/Public/css/<?= $style ?>.css">
         <?php endforeach; ?>
     <?php endif; ?>
@@ -45,7 +45,11 @@
               <li class="icon"><button><i class="fa fa-search fa-lg"></i></button></li>
             </form>
           </div>
+          <?php if ($isAuth) :?>
+          <li><a href="/cabinet"><i class="fa fa-user fa-lg"></i></a></li>
+          <?php else :?>
           <li><a href="/login"><i class="fa fa-user fa-lg"></i></a></li>
+          <?php endif;?>
           <li><a href="/cart"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
         </ul>
       </div>
