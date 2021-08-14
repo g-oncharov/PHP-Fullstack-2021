@@ -19,12 +19,12 @@ class Controller
         $this->db = new Db();
         $this->auth = new Authentication();
 
+        $isAuth = $this->auth->isAuth();
+        $this->view->set('isAuth', $isAuth);
+
         if (is_null($this->db->pdo)) {
             $errorController = new ErrorController();
             $errorController->actionCustomError($this->db->error);
         }
-
-        $isAuth = $this->auth->isAuth();
-        $this->view->set('isAuth', $isAuth);
     }
 }

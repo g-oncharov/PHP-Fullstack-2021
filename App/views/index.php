@@ -12,38 +12,14 @@
     <div class="container">
       <section class="products products--popular">
         <h2>Phones</h2>
-        <ul class="products-list">
-          <?php foreach ($phonesList as $item) : ?>
-          <li class="product-item">
-            <a href="/product/<?= $item->getId()?>">
-              <div class="product-item__image">
-                <img src="/Public/products/<?= $item->getImage() ?>" alt="">
-              </div>
-              <div class="product-item__text">
-                <p class="product-item__name"><?= $item->getTitle() ?></p>
-                <p class="product-item__price"><?= $item->getPrice() ?> $</p>
-              </div>
-            </a>
-          </li>
-          <?php endforeach; ?>
+        <ul class="products-list products-list--phones">
+          <li class="product-item product-item--loader"><div class="loader">Loading...</div></li>
         </ul>
       </section>
       <section class="products products--new">
         <h2>Tablets</h2>
-        <ul class="products-list">
-            <?php foreach ($tabletsList as $item) : ?>
-              <li class="product-item">
-                <a href="/product/<?= $item->getId()?>">
-                  <div class="product-item__image">
-                    <img src="/Public/products/<?= $item->getImage() ?>" alt="">
-                  </div>
-                  <div class="product-item__text">
-                    <p class="product-item__name"><?= $item->getTitle() ?></p>
-                    <p class="product-item__price"><?= $item->getPrice() ?> $</p>
-                  </div>
-                </a>
-              </li>
-            <?php endforeach; ?>
+        <ul class="products-list products-list--tablets">
+          <li class="product-item product-item--loader"><div class="loader">Loading...</div></li>
         </ul>
       </section>
     </div>
@@ -79,27 +55,3 @@
     </div>
   </section>
 </main>
-<script>
-    const status = function (response) {
-        if (response.status !== 200) {
-            return Promise.reject(new Error(response.statusText))
-        }
-        return Promise.resolve(response)
-    }
-    const json = function (response) {
-        return response.json()
-    }
-
-    fetch('http://www.mocky.io/v2/5944e07213000038025b6f30', {
-        method: 'post',
-        body: 'test=1'
-    })
-        .then(status)
-        .then(json)
-        .then(function (data) {
-            console.log('data', data)
-        })
-        .catch(function (error) {
-            console.log('error', error)
-        })
-</script>

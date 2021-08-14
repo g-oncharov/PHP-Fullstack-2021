@@ -23,6 +23,10 @@
     cursor: pointer;
     transition: transform 0.4s;
 }
+.product-item--loader {
+    margin: 0 auto !important;
+    text-align: center;
+}
 .product-item:hover {
     transform: scale(1.05);
 }

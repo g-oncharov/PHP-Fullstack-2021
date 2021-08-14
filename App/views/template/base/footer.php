@@ -7,11 +7,11 @@
         <div class="footer__categories">
             <h2>Categories</h2>
             <ul class="categories__list">
-                <li class="categories__item"><a href="#">Phones</a></li>
-                <li class="categories__item"><a href="#">Watches</a></li>
-                <li class="categories__item"><a href="#">Tablets</a></li>
-                <li class="categories__item"><a href="#">Notebooks</a></li>
-                <li class="categories__item"><a href="#">Accessories</a></li>
+              <li class="categories__item"><a href="/phones">Phones</a></li>
+              <li class="categories__item"><a href="/watches">Watches</a></li>
+              <li class="categories__item"><a href="/tablets">Tablets</a></li>
+              <li class="categories__item"><a href="/notebooks">Notebooks</a></li>
+              <li class="categories__item"><a href="/accessories">Accessories</a></li>
             </ul>
         </div>
         <div class="footer__about">
@@ -31,6 +31,11 @@
         </div>
     </div>
 </footer>
+<?php if (!empty($scripts)) : ?>
+    <?php foreach ($scripts as $script) : ?>
+    <script src="/Public/js/<?= $script ?>.js"></script>
+    <?php endforeach; ?>
+<?php endif; ?>
 <script src="/Public/js/dropdown.js"></script>
 </body>
 </html>

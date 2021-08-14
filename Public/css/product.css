@@ -3,11 +3,27 @@
 }
 .product-about .product-about__wrapper {
     background-color: #fff;
+    border-radius: 6px;
+}
+
+.product-about .product-about__item {
+    background-color: #fff;
     display: flex;
     flex-wrap: wrap;
     border-radius: 6px;
     overflow: hidden;
 }
+
+.product-about .product-item__wrapper {
+    height: 550px;
+    margin: 0 auto;
+}
+
+.product-about .product-item__wrapper .loader {
+    margin-top: 230px;
+}
+
+
 .product-about__image {
     width: 550px;
     height: 550px;

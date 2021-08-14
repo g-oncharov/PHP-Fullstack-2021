@@ -15,11 +15,14 @@ class Product extends ActiveRecordEntity
     /** @var string */
     private string $price;
 
-    /** @var int */
-    protected int $categoryId;
-
     /** @var string */
     private string $image;
+
+    /** @var ?string */
+    protected ?string $category = null;
+
+    /** @var ?int */
+    protected ?int $categoryId = null;
 
     /**
      * @return string
@@ -46,19 +49,43 @@ class Product extends ActiveRecordEntity
     }
 
     /**
+     * @return string
+     */
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+
+    /**
      * @return int
      */
     public function getCategoryId(): ?int
     {
-        return $this->categoryId;
+        return $this->category;
     }
-
     /**
      * @return string
      */
     public function getImage(): ?string
     {
         return $this->image;
+    }
+
+    /**
+     * @param int $id
+     * @return static|null
+     */
+    public static function findById(int $id): ?self
+    {
+        $sql = 'SELECT products.id as id, products.title as title, description, price, categories.title as category, image
+                FROM products INNER JOIN categories ON products.category_id = categories.id WHERE products.id=:id;';
+        $entities = self::$db->query(
+            $sql,
+            Product::class,
+            [':id' => $id]
+        );
+        return $entities ? $entities[0] : null;
     }
 
     /**
@@ -81,8 +108,8 @@ class Product extends ActiveRecordEntity
      */
     public static function findByCategory(string $title): ?array
     {
-        $sql = 'SELECT products.id as id, products.title as title, description, price, category_id, image
-                FROM products INNER JOIN categories ON category_id = categories.id
+        $sql = 'SELECT products.id as id, products.title as title, description, price, categories.title as category, image
+                FROM products INNER JOIN categories ON products.category_id = categories.id
                 WHERE categories.title = :title ORDER BY products.id DESC;';
 
         return self::$db->query(

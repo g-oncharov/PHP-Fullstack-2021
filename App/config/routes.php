@@ -2,34 +2,59 @@
 
 return [
     [
+        'url' => 'api/product/([0-9]+)',
+        'controller' => 'api',
+        'action' => 'product'
+    ],
+    [
+        'url' => 'api/phones',
+        'controller' => 'api',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'api/watches',
+        'controller' => 'api',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'api/tablets',
+        'controller' => 'api',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'api/notebooks',
+        'controller' => 'api',
+        'action' => 'category'
+    ],
+    [
+        'url' => 'api/accessories',
+        'controller' => 'api',
+        'action' => 'category'
+    ],
+    [
         'url' => 'phones',
         'controller' => 'product',
-        'action' => 'products'
+        'action' => 'category'
     ],
     [
         'url' => 'watches',
         'controller' => 'product',
-        'action' => 'products'
+        'action' => 'category'
     ],
     [
         'url' => 'tablets',
         'controller' => 'product',
-        'action' => 'products'
+        'action' => 'category'
     ],
     [
         'url' => 'notebooks',
         'controller' => 'product',
-        'action' => 'products'
+        'action' => 'category'
     ],
     [
         'url' => 'accessories',
         'controller' => 'product',
-        'action' => 'products'
-    ],
-    [
-        'url' => 'products',
-        'controller' => 'product',
-        'action' => 'products',
+        'action' => 'category'
     ],
     [
         'url' => 'product/([0-9]+)',
@@ -58,14 +83,14 @@ return [
         'action' => 'signin',
     ],
     [
+        'url' => '([0-9A-z_]+)',
+        'controller' => 'error',
+        'action' => 'notFound'
+    ],
+    [
         'url' => '',
         'controller' => 'product',
         'action' => 'index',
-    ],
-    [
-        'url' => '([0-9A-z_]+)',
-        'controller' => 'error',
-        'action' => '404'
     ],
 
 ];

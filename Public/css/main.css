@@ -372,7 +372,7 @@ section > h2 {
     transform: rotate(45deg);
 }
 .breadcrumb li:last-child {
-    user-select: none;
+    text-transform: capitalize;
 }
 
 /* breadcrumbs */
