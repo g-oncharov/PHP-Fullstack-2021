@@ -4,6 +4,7 @@ namespace Controller;
 
 use Framework\Controller\Controller;
 use Framework\View\View;
+use Model\Authentication;
 
 class ErrorController extends Controller
 {
@@ -11,6 +12,10 @@ class ErrorController extends Controller
     public function __construct()
     {
         $this->view = new View();
+        $this->auth = new Authentication();
+
+        $isAuth = $this->auth->isAuth();
+        $this->view->set('isAuth', $isAuth);
     }
 
     public function notFound()
