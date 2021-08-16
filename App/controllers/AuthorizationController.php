@@ -19,8 +19,10 @@ class AuthorizationController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             extract($_POST);
-            if ($this->auth->auth($email, $pass)) {
-                header('Location: /');
+            if (isset($email) && isset($pass)) {
+                if ($this->auth->auth($email, $pass)) {
+                    header('Location: /');
+                }
             }
         }
 
@@ -43,7 +45,16 @@ class AuthorizationController extends Controller
         $params = [
             'styles' => ['signin'],
             'error' => $error
-            ];
+        ];
         $this->view->render('signin', $params);
+    }
+
+    public function logout()
+    {
+        if ($this->auth->isAuth()) {
+            $this->auth->logOut();
+        }
+
+        header("Location: /");
     }
 }
