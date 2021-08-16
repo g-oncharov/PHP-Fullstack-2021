@@ -21,14 +21,14 @@ class SearchController extends Controller
     public function search()
     {
         $result = (string) $this->url->getLastPartUrl();
-        $ProductList = $this->product->findByTitle($result);
-        $count = count($ProductList);
+        $productList = $this->product->findByTitle($result);
+        $count = count($productList);
         $styles = ['search'];
         $params = [
             'styles' => $styles,
             'result' => $result,
             'count' => $count,
-            'ProductList' => $ProductList
+            'productList' => $productList
             ];
         $this->view->render('search', $params);
     }

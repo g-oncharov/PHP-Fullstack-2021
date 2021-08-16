@@ -3,24 +3,20 @@
         <nav class="breadcrumb-nav">
             <ul class="breadcrumb">
                 <li><a href="/">Home</a></li>
-                <li>Search</li>
+                <li>Your orders</li>
             </ul>
         </nav>
         <section class="search">
-          <h2>Search</h2>
+            <h2>Your orders</h2>
+            <?php if (isset($products) && isset($productsCount)) : ?>
             <div class="search-result">
-              <p>
-                <?php if (isset($count) && isset($result)) : ?>
-                <span class="search-result__count"><?= $count ?></span>
-                results found for the keyword «<span class="search-result__text"><?= $result ?></span>»</p>
-                <?php endif; ?>
+              <p>You have <span class="search-result__count"><?= $productsCount; ?></span> orders in total</p>
             </div>
             <ul class="search-list">
-                <?php if (isset($productList)) : ?>
-                    <?php foreach ($productList as $item) : ?>
-                      <li class="search-item">
-                        <div>
-                          <a href="/product/<?= $item->getId() ?>">
+                <?php foreach ($products as $item) : ?>
+                <li class="search-item">
+                    <div>
+                        <a href="/product/<?= $item->getId() ?>">
                             <div class="search-item__image">
                               <img src="/Public/products/<?= $item->getImage() ?>" alt="">
                             </div>
@@ -29,12 +25,16 @@
                             <div class="search-item__delete">
                               <button class="search-about__btn btn-purple btn">Read more</button>
                             </div>
-                          </a>
-                        </div>
-                      </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                        </a>
+                    </div>
+                </li>
+                <?php endforeach; ?>
             </ul>
+            <?php else : ?>
+              <div class="search-section__wrapper">
+                  <h2>You have no orders yet!</h2>
+              </div>
+            <?php endif; ?>
         </section>
     </div>
 </main>

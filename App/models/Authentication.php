@@ -24,6 +24,7 @@ class Authentication
         $this->session->start();
         $this->session->set("auth", true, "user");
         if ($by == 'login') {
+            $id = (int) $user->getId();
             $firstName = $user->getFirstName();
             $lastName = $user->getLastName();
             $email = $user->getEmail();
@@ -32,6 +33,7 @@ class Authentication
             $status = $user->getStatus();
         }
         if ($by == 'register') {
+            $id = (int) $user['id'];
             $firstName = $user['firstName'];
             $lastName = $user['lastName'];
             $email = $user['email'];
@@ -39,6 +41,7 @@ class Authentication
             $telephone = $user['telephone'];
             $status = 0;
         }
+        $this->session->set("id", $id, "user");
         $this->session->set("firstName", $firstName, "user");
         $this->session->set("lastName", $lastName, "user");
         $this->session->set("email", $email, "user");
