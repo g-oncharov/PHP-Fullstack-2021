@@ -39,14 +39,15 @@
       </div>
       <div class="user-navigation">
         <ul>
-          <div class="user-navigation__input-wrapper">
+          <li class="user-navigation__input-wrapper">
             <form action="search">
+              <label for="search" class="d-none">Search</label>
               <input type="text" name="search" class="user-navigation__input input" id="search" required>
-              <li class="icon"><button><i class="fa fa-search fa-lg"></i></button></li>
+              <div class="icon"><button><i class="fa fa-search fa-lg"></i></button></div>
             </form>
-          </div>
-          <?php if ($isAuth) :?>
-          <li><a href="/cabinet"><i class="fa fa-user fa-lg"></i></a></li>
+          </li>
+          <?php if (isset($isAuth) && $isAuth) :?>
+          <li><a href="/orders"><i class="fa fa-list-ul fa-lg"></i></a></li>
           <?php else :?>
           <li><a href="/login"><i class="fa fa-user fa-lg"></i></a></li>
           <?php endif;?>

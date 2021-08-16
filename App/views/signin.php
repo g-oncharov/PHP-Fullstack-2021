@@ -39,7 +39,11 @@
             <input type="password" name="pass2" class="input" id="pass2" required>
           </div>
           <div class="signin-section__input-item error-text">
-            <?= $error ?>
+              <?php if (isset($error)) : ?>
+                  <?= $error ?>
+              <?php else : ?>
+                  <?= 'Error'?>
+              <?php endif; ?>
           </div>
         </div>
           <div class="signin-section__footer">

@@ -20,7 +20,11 @@
             <span class="forgot-pass"><a href="#">Forgot password?</a></span>
           </div>
           <div class="login-section__input-item error-text">
-              <?= $error ?>
+              <?php if (isset($error)) : ?>
+                  <?= $error?>
+              <?php else : ?>
+                  <?= 'Error'?>
+              <?php endif; ?>
           </div>
           <div class="login-section__footer">
             <button type="submit" class="btn btn-purple">Log in</button>

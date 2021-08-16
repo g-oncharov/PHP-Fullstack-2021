@@ -57,6 +57,11 @@ return [
         'action' => 'category'
     ],
     [
+        'url' => 'orders',
+        'controller' => 'order',
+        'action' => 'order',
+    ],
+    [
         'url' => 'product/([0-9]+)',
         'controller' => 'product',
         'action' => 'product'
