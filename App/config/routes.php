@@ -83,6 +83,11 @@ return [
         'action' => 'login',
     ],
     [
+        'url' => 'logout',
+        'controller' => 'authorization',
+        'action' => 'logout',
+    ],
+    [
         'url' => 'signin',
         'controller' => 'authorization',
         'action' => 'signin',

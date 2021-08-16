@@ -7,7 +7,6 @@ use Framework\Session\Session;
 class Authentication
 {
     public bool $authorized;
-    public string $login;
     public Session $session;
     public User $user;
     public string $error;
@@ -56,16 +55,11 @@ class Authentication
      */
     public function isAuth(): bool
     {
-        $result = false;
         $this->session->start();
-        $isAuth = $this->session->get("auth", "user") ?? false;
-        if ($isAuth) {
-            $result = true;
-        }
-        return $result;
+        return $this->session->get("auth", "user") ?? false;
     }
 
-    private function clean($value)
+    private function clean($value): string
     {
         $value = trim($value);
         $value = stripslashes($value);
@@ -113,7 +107,6 @@ class Authentication
             if (!is_null($passFromDb) && password_verify($pass, $passFromDb)) {
                 $user = $this->user->findByEmail($email);
                 $this->setUser($user);
-                $this->login = $user->getLogin();
                 $result = true;
             } else {
                 $msg = 'Password is wrong';
@@ -186,11 +179,8 @@ class Authentication
      */
     public function getLogin()
     {
-        $result = false;
-        if (isset($this->login)) {
-            $result = $this->login;
-        }
-        return $result;
+        $this->session->start();
+        return $this->session->get("login", "user") ?? false;
     }
     /**
      * Getting a error.
@@ -210,6 +200,6 @@ class Authentication
      */
     public function logOut(): void
     {
-        $this->login = '';
+        $this->session->delete('user');
     }
 }

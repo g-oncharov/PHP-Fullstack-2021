@@ -48,6 +48,7 @@
           </li>
           <?php if (isset($isAuth) && $isAuth) :?>
           <li><a href="/orders"><i class="fa fa-list-ul fa-lg"></i></a></li>
+          <li><a href="/logout"><i class="fa fa-sign-out fa-lg"></i></a></li>
           <?php else :?>
           <li><a href="/login"><i class="fa fa-user fa-lg"></i></a></li>
           <?php endif;?>
