@@ -67,7 +67,6 @@ class Router
     {
         $this->controller = $this->parse($controller);
         $this->action = $action;
-
         if (
             !class_exists($this->controller)
             || !method_exists($this->controller, $this->action)
@@ -83,6 +82,9 @@ class Router
         $result = false;
         foreach ($this->routes as $route) {
             extract($route, EXTR_OVERWRITE);
+            if (isset($regex) && $regex) {
+                $url = "($url$)";
+            }
             $url = "~$url~";
             if (preg_match($url, $urlPath)) {
                 $this->load($controller, $action);
