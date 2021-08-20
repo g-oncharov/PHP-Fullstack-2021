@@ -4,7 +4,8 @@ return [
     [
         'url' => 'api/product/([0-9]+)',
         'controller' => 'api',
-        'action' => 'product'
+        'action' => 'product',
+        'regex' => true
     ],
     [
         'url' => 'api/phones',
@@ -64,13 +65,15 @@ return [
     [
         'url' => 'product/([0-9]+)',
         'controller' => 'product',
-        'action' => 'product'
+        'action' => 'product',
+        'regex' => true
     ],
     [
         'url' => 'search/([0-9A-z_-]+)',
         'controller' => 'search',
         'action' => 'search',
-        'getKey' => 'search'
+        'getKey' => 'search',
+        'regex' => true
     ],
     [
         'url' => 'cart',
@@ -95,7 +98,8 @@ return [
     [
         'url' => '([0-9A-z_]+)',
         'controller' => 'error',
-        'action' => 'notFound'
+        'action' => 'notFound',
+        'regex' => true
     ],
     [
         'url' => '',
