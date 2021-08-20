@@ -3,6 +3,7 @@
 namespace Model;
 
 use Framework\Session\Session;
+use Framework\Validator\Validator;
 
 class Authentication
 {
@@ -10,12 +11,14 @@ class Authentication
     public Session $session;
     public User $user;
     public string $error;
+    public Validator $validator;
 
     public function __construct()
     {
         $this->user = new User();
         $this->session = new Session();
         $this->authorized = false;
+        $this->validator = new Validator();
     }
 
     private function setUser($user, $by = 'login')
@@ -59,22 +62,6 @@ class Authentication
         return $this->session->get("auth", "user") ?? false;
     }
 
-    private function clean($value): string
-    {
-        $value = trim($value);
-        $value = stripslashes($value);
-        $value = strip_tags($value);
-        $value = htmlspecialchars($value);
-
-        return $value;
-    }
-
-    private function checkLength($value, $max = 45, $min = 2): bool
-    {
-        $result = (mb_strlen($value) < $min || mb_strlen($value) > $max);
-        return !$result;
-    }
-
     /**
      * Authorization process.
      * @param string $email
@@ -86,8 +73,8 @@ class Authentication
         $result = false;
         $msg = '';
 
-        $email = $this->clean($email);
-        $pass = $this->clean($pass);
+        $email = $this->validator->clean($email);
+        $pass = $this->validator->clean($pass);
 
         $condition = isset($email) && isset($pass);
 
@@ -95,10 +82,10 @@ class Authentication
             $msg = 'Fill in all the fields';
         } else {
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-            if (!$this->checkLength($email, 255, 6)) {
+            if (!$this->validator->checkLength($email, 255, 6)) {
                 $msg = 'Email is invalid (6 to 255 characters)';
             }
-            if (!$this->checkLength($pass, 255, 4)) {
+            if (!$this->validator->checkLength($pass, 255, 4)) {
                 $msg = 'Password is invalid (4 to 255 characters)';
             }
         }
@@ -123,7 +110,7 @@ class Authentication
         $msg = '';
 
         foreach ($arr as $elem) {
-            $elem = $this->clean($elem);
+            $elem = $this->validator->clean($elem);
         }
 
         extract($arr, EXTR_OVERWRITE);
@@ -139,22 +126,22 @@ class Authentication
             $msg = 'Fill in all the fields';
         } else {
             $emailValidate = filter_var($email, FILTER_VALIDATE_EMAIL);
-            if (!$emailValidate && !$this->checkLength($emailValidate, 255, 6)) {
+            if (!$emailValidate && !$this->validator->checkLength($emailValidate, 255, 6)) {
                 $msg = 'Email is invalid (6 to 255 characters)';
             }
-            if (!$this->checkLength($firstName, 15)) {
+            if (!$this->validator->checkLength($firstName, 15)) {
                 $msg = 'First Name is invalid (2 to 15 characters)';
             }
-            if (!$this->checkLength($lastName, 15)) {
+            if (!$this->validator->checkLength($lastName, 15)) {
                 $msg = 'Last Name is invalid (2 to 15 characters)';
             }
-            if (!$this->checkLength($login)) {
+            if (!$this->validator->checkLength($login)) {
                 $msg = 'Login is invalid (2 to 45 characters)';
             }
-            if (!$this->checkLength($telephone, 45, 4)) {
+            if (!$this->validator->checkLength($telephone, 45, 4)) {
                 $msg = 'Telephone is invalid (4 to 45 characters)';
             }
-            if (!$this->checkLength($pass, 255, 4)) {
+            if (!$this->validator->checkLength($pass, 255, 4)) {
                 $msg = 'Password is invalid (4 to 255 characters)';
             }
             if ($pass !== $pass2) {

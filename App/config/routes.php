@@ -69,7 +69,7 @@ return [
         'regex' => true
     ],
     [
-        'url' => 'search/([0-9A-z_-]+)',
+        'url' => 'search/([\%0-9A-z_-]+)',
         'controller' => 'search',
         'action' => 'search',
         'getKey' => 'search',

@@ -9,4 +9,9 @@ class Url
         $result = explode('/', $_SERVER['REQUEST_URI']);
         return end($result);
     }
+
+    public function parseSpaceUrl($str)
+    {
+        return preg_replace('/%20/', ' ', $str);
+    }
 }
