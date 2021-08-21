@@ -40,3 +40,8 @@
 .search-item .search-about__btn {
     font-size: 18px;
 }
+.oops-block {
+    font-size: 70px;
+    text-align: center;
+    padding: 150px 0;
+}

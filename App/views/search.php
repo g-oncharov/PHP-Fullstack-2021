@@ -16,7 +16,7 @@
                 <?php endif; ?>
             </div>
             <ul class="search-list">
-                <?php if (isset($productList)) : ?>
+                <?php if (!empty($productList)) : ?>
                     <?php foreach ($productList as $item) : ?>
                       <li class="search-item">
                         <div>
@@ -33,6 +33,10 @@
                         </div>
                       </li>
                     <?php endforeach; ?>
+                <?php else : ?>
+                  <div class="oops-block">
+                    <h2>Nothing found!</h2>
+                  </div>
                 <?php endif; ?>
             </ul>
         </section>
