@@ -3,11 +3,11 @@
     <nav class="breadcrumb-nav">
       <ul class="breadcrumb">
         <li><a href="/">Home</a></li>
-        <li>Cabinet</li>
+        <li>Sign in</li>
       </ul>
     </nav>
     <section class="signin-section">
-      <h2>Signin</h2>
+      <h2>Sign in</h2>
       <form method="post">
         <div class="signin-section__input-list">
           <div class="signin-section__input-item">

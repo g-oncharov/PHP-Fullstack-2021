@@ -3,7 +3,7 @@
     <nav class="breadcrumb-nav">
       <ul class="breadcrumb">
         <li><a href="/">Home</a></li>
-        <li>Cabinet</li>
+        <li>Login</li>
       </ul>
     </nav>
     <section class="login-section">
