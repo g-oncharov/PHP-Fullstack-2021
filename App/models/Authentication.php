@@ -63,6 +63,20 @@ class Authentication
     }
 
     /**
+     * Administrator check.
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        $result = false;
+        $this->session->start();
+        if ($this->getStatus() === 10) {
+            $result = true;
+        }
+        return $result;
+    }
+
+    /**
      * Authorization process.
      * @param string $email
      * @param string $pass
@@ -89,7 +103,7 @@ class Authentication
                 $msg = 'Password is invalid (4 to 255 characters)';
             }
         }
-        if ($msg == '') {
+        if (empty($msg)) {
             $passFromDb = $this->user->findByEmail($email)->getPassword();
             if (!is_null($passFromDb) && password_verify($pass, $passFromDb)) {
                 $user = $this->user->findByEmail($email);
@@ -149,7 +163,7 @@ class Authentication
             }
         }
 
-        if ($msg == '') {
+        if (empty($msg)) {
             $passHash = password_hash($pass, PASSWORD_BCRYPT);
             $arr['email'] = $emailValidate;
             $this->user->insert($firstName, $lastName, $emailValidate, $login, $passHash, $telephone);
@@ -161,14 +175,12 @@ class Authentication
         return $result;
     }
 
-    /**
-     * Getting a login.
-     */
-    public function getLogin()
+    public function getStatus(): ?int
     {
         $this->session->start();
-        return $this->session->get("login", "user") ?? false;
+        return $this->session->get("status", "user");
     }
+
     /**
      * Getting a error.
      */

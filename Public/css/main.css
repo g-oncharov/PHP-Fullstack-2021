@@ -156,6 +156,37 @@ a:visited {
     overflow: hidden;
 }
 
+.textarea {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    min-height: 300px;
+    padding: 15px 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #b3aeab;
+    border-radius: 25px;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.4s;
+}
+
+.select {
+    width: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #b3aeab;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-family: 'Quicksand', Arial, sans-serif;
+    cursor: pointer;
+    outline: none;
+    appearance:none;
+    background-color: #fff;
+    transition: border-color 0.4s;
+}
+
 .input {
     display: block;
     width: 100%;
@@ -167,6 +198,10 @@ a:visited {
     outline: none;
     transition: border-color 0.4s;
 }
+.textarea:hover,
+.textarea:focus,
+.select:hover,
+.select:focus,
 .input:hover,
 .input:focus {
     border-color:  #868380;

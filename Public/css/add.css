@@ -1,0 +1,65 @@
+.add-section {
+    font-family: 'Quicksand', Arial, sans-serif;
+    padding-bottom: 60px;
+}
+.add-section form {
+    background-color: white;
+    width: 600px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    border-radius: 6px;
+}
+.add-section h2 {
+    color: #fff;
+    font-size: 50px;
+    font-family: "Fredoka One", Arial, sans-serif;
+    padding-top: 0;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.add-section .login-link {
+    display: block;
+}
+.add-section .login-link{
+    color: #372C50;
+    transition: color 0.5s;
+}
+.add-section .login-link:hover{
+    color: #644d8c;
+}
+
+.add-section__input-item {
+    margin-top: 30px;
+}
+
+.add-section__input-item--preview {
+    display: none;
+}
+
+.add-section__input-list b {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.add-section__footer .btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.add-section__footer .login-link{
+    text-align: center;
+    font-weight: 600;
+}
+
+.select-label {
+    position: relative;
+}
+.select-label > i {
+    position: absolute;
+    right: 20px;
+    top: 47px;
+    color: #868380;
+    cursor: pointer;
+}

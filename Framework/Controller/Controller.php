@@ -20,7 +20,9 @@ class Controller
         $this->auth = new Authentication();
 
         $isAuth = $this->auth->isAuth();
+        $status = $this->auth->getStatus();
         $this->view->set('isAuth', $isAuth);
+        $this->view->set('status', $status);
 
         if (is_null($this->db->pdo)) {
             $errorController = new ErrorController();

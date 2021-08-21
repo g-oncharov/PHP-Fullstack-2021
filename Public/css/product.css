@@ -22,7 +22,23 @@
 .product-about .product-item__wrapper .loader {
     margin-top: 230px;
 }
+.product-about .product-item__delete {
+    position: relative;
+}
+.product-about .product-item__delete > a {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
 
+.product-about .product-item__delete > a {
+    color: #9d92a5;
+    transition: color 0.3s;
+}
+.product-about .product-item__delete > a:hover {
+    color: #f54b3f;
+}
 
 .product-about__image {
     width: 550px;

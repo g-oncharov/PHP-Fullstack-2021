@@ -20,7 +20,10 @@ class ProductController extends Controller
         $styles = ['index', 'productsSection', 'loader'];
         $scripts = ['json', 'index'];
 
-        $params = ['styles' => $styles, 'scripts' => $scripts];
+        $params = [
+            'styles' => $styles,
+            'scripts' => $scripts
+        ];
         $this->view->render('index', $params);
     }
 
@@ -38,10 +41,13 @@ class ProductController extends Controller
 
     public function product()
     {
+        $id = $this->url->getLastPartUrl();
+
         $styles = ['product', 'loader'];
         $scripts = ['json', 'product'];
 
         $params = [
+            'id' => $id,
             'styles' => $styles,
             'scripts' => $scripts
         ];
