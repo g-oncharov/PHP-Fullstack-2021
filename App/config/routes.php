@@ -58,6 +58,17 @@ return [
         'action' => 'category'
     ],
     [
+        'url' => 'delete/([0-9]+)',
+        'controller' => 'admin',
+        'action' => 'delete',
+        'regex' => true
+    ],
+    [
+        'url' => 'add',
+        'controller' => 'admin',
+        'action' => 'add',
+    ],
+    [
         'url' => 'orders',
         'controller' => 'order',
         'action' => 'order',

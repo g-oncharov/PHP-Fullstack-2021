@@ -55,6 +55,6 @@ class AuthorizationController extends Controller
             $this->auth->logOut();
         }
 
-        header("Location: /");
+        header("Location: " . $_SERVER['HTTP_REFERER']);
     }
 }

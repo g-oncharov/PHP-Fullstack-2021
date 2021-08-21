@@ -121,7 +121,6 @@ class User extends ActiveRecordEntity
      * @param string $login
      * @param string $password
      * @param string $telephone
-     * @return User|null
      */
     public static function insert(
         string $first_name,

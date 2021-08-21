@@ -89,6 +89,19 @@ class Product extends ActiveRecordEntity
     }
 
     /**
+     * @return static|null
+     */
+    public static function findLastId(): ?self
+    {
+        $sql = 'SELECT max(id) as id FROM products';
+        $entities = self::$db->query(
+            $sql,
+            Product::class
+        );
+        return $entities ? $entities[0] : null;
+    }
+
+    /**
      * @return Product[]
      */
     public static function findByTitle(string $title): ?array
@@ -108,7 +121,8 @@ class Product extends ActiveRecordEntity
      */
     public static function findByCategory(string $title): ?array
     {
-        $sql = 'SELECT products.id as id, products.title as title, description, price, categories.title as category, image
+        $sql = 'SELECT products.id as id, products.title as title, 
+                description, price, categories.title as category, image
                 FROM products INNER JOIN categories ON products.category_id = categories.id
                 WHERE categories.title = :title ORDER BY products.id DESC;';
 
@@ -116,6 +130,36 @@ class Product extends ActiveRecordEntity
             $sql,
             Product::class,
             [':title' => $title]
+        );
+    }
+
+    public static function insert(string $title, string $description, int $price, int $category_id, string $image): void
+    {
+        $sql = 'INSERT INTO products (title, description, price, category_id, image)
+                VALUES (:title, :description, :price, :category_id, :image);';
+
+        self::$db->query(
+            $sql,
+            Product::class,
+            [
+                ':title' => $title,
+                ':description' => $description,
+                ':price' => $price,
+                ':category_id' => $category_id,
+                ':image' => $image,
+            ]
+        );
+    }
+
+
+    public static function delete(int $id): void
+    {
+        $sql = 'DELETE FROM products WHERE id = :id';
+
+        self::$db->query(
+            $sql,
+            Product::class,
+            [':id' => $id]
         );
     }
 

@@ -11,8 +11,14 @@
         <div class="product-about__wrapper">
             <div class="product-about__item product-item">
               <div class="product-item__wrapper">
-              <div class="loader">Loading...</div>
-            </div>
+                <div class="loader">Loading...</div>
+              </div>
+
+              <?php if (isset($id) && isset($status) && $status === 10) : ?>
+                <div class="product-item__delete">
+                  <a href="/delete/<?=$id?>"><i class="fa fa-remove fa-2x"></i></a>
+                </div>
+              <?php endif; ?>
           </div>
         </div>
       </section>
