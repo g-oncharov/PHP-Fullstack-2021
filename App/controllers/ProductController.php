@@ -3,16 +3,16 @@
 namespace Controller;
 
 use Framework\Controller\Controller;
-use Framework\Url\Url;
+use Framework\Session\Session;
 
 class ProductController extends Controller
 {
-    protected Url $url;
+    protected Session $session;
 
     public function __construct()
     {
         parent::__construct();
-        $this->url = new Url();
+        $this->session = new Session();
     }
 
     public function index()
@@ -42,7 +42,6 @@ class ProductController extends Controller
     public function product()
     {
         $id = $this->url->getLastPartUrl();
-
         $styles = ['product', 'loader'];
         $scripts = ['json', 'product'];
 

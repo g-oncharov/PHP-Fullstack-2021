@@ -3,7 +3,6 @@
 namespace Controller;
 
 use Framework\Controller\Controller;
-use Framework\Url\Url;
 use Framework\Validator\Validator;
 use Model\Product;
 
@@ -11,13 +10,11 @@ class SearchController extends Controller
 {
     protected Product $product;
     protected Validator $validator;
-    protected Url $url;
 
     public function __construct()
     {
         parent::__construct();
         $this->product = new Product();
-        $this->url = new Url();
         $this->validator = new Validator();
     }
 
