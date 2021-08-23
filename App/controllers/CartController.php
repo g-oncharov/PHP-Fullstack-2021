@@ -9,13 +9,13 @@ use Model\Orders;
 class CartController extends Controller
 {
     public Session $session;
-    public Orders $ordes;
+    public Orders $orders;
 
     public function __construct()
     {
         parent::__construct();
         $this->session = new Session();
-        $this->ordes = new Orders();
+        $this->orders = new Orders();
     }
 
     public function cart()
@@ -52,7 +52,7 @@ class CartController extends Controller
         $this->session->start();
         $idProduct = $_POST['id'];
         $idUser = $this->session->get('id', 'user');
-        $this->ordes->insert($idProduct, $idUser);
+        $this->orders->insert($idProduct, $idUser);
         $this->session->delete('cart');
     }
 }
