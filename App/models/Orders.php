@@ -43,6 +43,20 @@ class Orders extends ActiveRecordEntity
         );
     }
 
+    public static function insert(int $idProduct, int $idUser): void
+    {
+        $sql = 'INSERT INTO orders (id_product, id_user) VALUES (:idProduct, :idUser);';
+
+        self::$db->query(
+            $sql,
+            Product::class,
+            [
+                ':idProduct' => $idProduct,
+                ':idUser' => $idUser
+            ]
+        );
+    }
+
 
     protected static function getTableName(): string
     {
