@@ -145,13 +145,28 @@ a:visited {
     padding: 12px 35px;
     background-color: #816eca;
     border-radius: 25px;
-    color: white;
+    color: white !important;
     text-transform: uppercase;
     display: inline;
 }
 .btn-purple:hover  {
     background-color: #584a8a;
 }
+
+.btn-red {
+    border: 0;
+    padding: 12px 35px;
+    background-color: #e91e63;
+    border-radius: 25px;
+    color: white !important;
+    text-transform: uppercase;
+    display: inline;
+}
+.btn-red:hover  {
+    background-color: #cc1452;
+}
+
+
 .overflow-h {
     overflow: hidden;
 }
@@ -469,4 +484,17 @@ section > h2 {
 }
 .footer__social-links .social-links__list li a:hover {
     color: #666666;
+}
+.oops-block {
+    background-color: #fff;
+    border-radius: 6px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.oops-block h2 {
+    font-size: 80px;
+    padding: 80px 40px;
+    color: #816eca;
+    text-align: center;
 }

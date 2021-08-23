@@ -82,3 +82,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.product-about .product-about__btn-button a.btn-purple {
+    display: block;
+}
+
+.product-about .product-about__btn-button .btn-red {
+    margin-left: 30px;
+}
+.product-about .product-about__btn--disabled {
+    background-color: #44338a;
+}
