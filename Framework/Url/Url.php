@@ -14,4 +14,21 @@ class Url
     {
         return preg_replace('/%20/', ' ', $str);
     }
+
+    public function goToHomePage()
+    {
+        header("Location: /");
+    }
+
+    public function goToPrevPage()
+    {
+        $httpReferer = $_SERVER['HTTP_REFERER'] ?? '/';
+        header("Location: $httpReferer");
+    }
+
+    public function goToPage(string $page)
+    {
+        header("Location: /$page");
+    }
+
 }
