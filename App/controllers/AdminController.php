@@ -3,7 +3,6 @@
 namespace Controller;
 
 use Framework\Controller\Controller;
-use Framework\Url\Url;
 use Model\Categories;
 use Model\Product;
 use Model\Admin;
@@ -13,7 +12,6 @@ class AdminController extends Controller
     public Categories $categories;
     public Product $product;
     public Admin $admin;
-    public Url $url;
 
     public function __construct()
     {
@@ -21,7 +19,6 @@ class AdminController extends Controller
         $this->categories = new Categories();
         $this->product = new Product();
         $this->admin = new Admin();
-        $this->url = new Url();
     }
 
     public function add()
@@ -30,7 +27,7 @@ class AdminController extends Controller
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($this->admin->add($_POST)) {
                     $lastId = $this->product->findLastId()->getId();
-                    header("Location: /product/$lastId");
+                    $this->url->goToPage("product/$lastId");
                 }
             }
 
@@ -48,7 +45,7 @@ class AdminController extends Controller
 
             $this->view->render('add', $params);
         } else {
-            header('Location: /');
+            $this->url->goToHomePage();
         }
     }
 
@@ -62,10 +59,9 @@ class AdminController extends Controller
 
             $this->product->delete($id);
             $this->admin->deleteImage($image);
-
-            header("Location: /$category");
+            $this->url->goToPage($category);
         } else {
-            header("Location: /");
+            $this->url->goToHomePage();
         }
     }
 }
