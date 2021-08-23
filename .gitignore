@@ -2,3 +2,4 @@
 /vendor/
 /log/
 App/config/.env
+/node_modules/
