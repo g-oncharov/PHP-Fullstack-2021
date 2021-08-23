@@ -26,8 +26,18 @@ class Json
         }
         return $array;
     }
+    public function removeUnnecessary(array $array, array $delete = []): array
+    {
+        if (!empty($delete)) {
+            foreach ($delete as $elem) {
+                unset($array[$elem]);
+            }
+        }
+        return $array;
+    }
 
-    public function getJsonByArray($items, $delete)
+
+    public function getObjects($items, array $delete = [])
     {
         header('Content-Type: application/json');
         $json = [];
@@ -37,10 +47,25 @@ class Json
         echo json_encode($json);
     }
 
-    public function getJson($item, $delete)
+    public function getObject($item, array $delete = [])
     {
         header('Content-Type: application/json');
         $item = $this->dismount($item, $delete);
         echo json_encode($item);
     }
+
+    public function getArrays($item, array $delete = [])
+    {
+        header('Content-Type: application/json');
+        $item = $this->removeUnnecessary($item, $delete);
+        echo json_encode($item);
+    }
+
+    public function getArray($item, array $delete = [])
+    {
+        header('Content-Type: application/json');
+        $item = ['items' => $item];
+        echo json_encode($item);
+    }
+
 }
