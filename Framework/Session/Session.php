@@ -38,12 +38,20 @@ class Session
      * @return void
      */
 
-    public function set($key, $value, $array = ''): void
+    public function set($key, $value, $array = '', $push = false): void
     {
         if ($array === '') {
-            $_SESSION[$key] = $value;
+            if ($push) {
+                $_SESSION[$key][] = $value;
+            } else {
+                $_SESSION[$key] = $value;
+            }
         } else {
-            $_SESSION[$array][$key] = $value;
+            if ($push) {
+                $_SESSION[$array][$key][] = $value;
+            } else {
+                $_SESSION[$array][$key] = $value;
+            }
         }
     }
 
@@ -51,9 +59,8 @@ class Session
      * Gets the value stored in the session by key.
      *
      * @param mixed $key
-     * @return string
      */
-    public function get($key, $array = ''): ?string
+    public function get($key, $array = '')
     {
         if ($array === '') {
             $result = $_SESSION[$key] ?? null;
