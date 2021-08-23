@@ -8,7 +8,7 @@
         </nav>
         <section class="search">
             <h2>Your orders</h2>
-            <?php if (isset($products) && isset($productsCount)) : ?>
+            <?php if (!empty($products) && isset($productsCount)) : ?>
             <div class="search-result">
               <p>You have <span class="search-result__count"><?= $productsCount; ?></span> orders in total</p>
             </div>
