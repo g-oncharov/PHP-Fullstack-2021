@@ -27,6 +27,7 @@
 .product-item--loader {
     margin: 0 auto !important;
     text-align: center;
+    background-color: transparent;
 }
 .product-item:hover {
     transform: scale(1.05);
