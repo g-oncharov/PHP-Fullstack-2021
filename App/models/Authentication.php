@@ -199,6 +199,6 @@ class Authentication
      */
     public function logOut(): void
     {
-        $this->session->delete('user');
+        $this->session->destroy();
     }
 }
