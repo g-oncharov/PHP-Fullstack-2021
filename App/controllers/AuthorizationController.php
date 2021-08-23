@@ -17,11 +17,15 @@ class AuthorizationController extends Controller
 
     public function login()
     {
+        if ($this->auth->isAuth()) {
+            $this->url->goToHomePage();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             extract($_POST);
             if (isset($email) && isset($pass)) {
                 if ($this->auth->auth($email, $pass)) {
-                    header('Location: /');
+                    $this->url->goToHomePage();
                 }
             }
         }
@@ -36,9 +40,13 @@ class AuthorizationController extends Controller
 
     public function signin()
     {
+        if ($this->auth->isAuth()) {
+            $this->url->goToHomePage();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->auth->register($_POST)) {
-                header('Location: /');
+                $this->url->goToHomePage();
             }
         }
         $error = $this->auth->getError();
@@ -55,6 +63,6 @@ class AuthorizationController extends Controller
             $this->auth->logOut();
         }
 
-        header("Location: " . $_SERVER['HTTP_REFERER']);
+        $this->url->goToPrevPage();
     }
 }
