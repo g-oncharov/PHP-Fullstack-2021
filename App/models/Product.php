@@ -12,8 +12,8 @@ class Product extends ActiveRecordEntity
     /** @var string */
     private string $description;
 
-    /** @var string */
-    private string $price;
+    /** @var int */
+    private int $price;
 
     /** @var string */
     private string $image;
@@ -41,9 +41,9 @@ class Product extends ActiveRecordEntity
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getPrice(): ?string
+    public function getPrice(): ?int
     {
         return $this->price;
     }
