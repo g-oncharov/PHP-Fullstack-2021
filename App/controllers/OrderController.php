@@ -23,6 +23,9 @@ class OrderController extends Controller
 
     public function order()
     {
+        if ($this->auth->isAdmin()) {
+            $this->url->goToPrevPage();
+        }
         if ($this->auth->isAuth()) {
             $products = [];
             $id = $this->session->get('id', 'user');
@@ -41,7 +44,7 @@ class OrderController extends Controller
 
             $this->view->render('orders', $params);
         } else {
-            header('Location: /');
+            $this->url->goToHomePage();
         }
     }
 }
