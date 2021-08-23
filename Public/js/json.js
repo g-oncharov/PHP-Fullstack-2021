@@ -24,25 +24,6 @@ const outputProductsList = (data, elem) => {
     }
 }
 
-const outputProduct = data => {
-    let html = `          
-                  <div class="product-about__item">
-                    <div class="product-about__image">
-                      <img src="/Public/products/${data.image}" alt="">
-                    </div>
-                    <div class="product-about__text">
-                      <p class="product-about__name"><?= $item->${data.title}</p>
-                      <p class="product-about__description"><?= $item->${data.description}</p>
-                      <div class="product-about__price-wrapper">
-                        <p class="product-about__price"><?= $item->${data.price} $</p>
-                        <button class="product-about__btn btn-purple btn">Add to cart</button>
-                      </div>
-                    </div>
-                  </div>
-              `;
-    html = html.trim();
-    document.querySelector('.product-item__wrapper').innerHTML = html;
-};
 
 const outputCategoryTitle = title => {
     document.querySelector('.breadcrumb-item--category').innerText = title;
