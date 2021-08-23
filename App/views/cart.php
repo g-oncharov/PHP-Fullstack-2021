@@ -6,39 +6,9 @@
             <li>Cart</li>
           </ul>
         </nav>
-      <section class="cart">
-        <ul class="cart-list">
-          <li class="cart-item">
-            <div>
-              <div class="cart-item__image"><a href="#"><img src="/Public/img/item_not_found.png" alt=""></a></div>
-              <div class="cart-item__name"><a href="#">Item</a></div>
-              <div class="cart-item__price"><a href="#">200 $</a></div>
-              <div class="cart-item__delete"><div><i class="fa fa-times" aria-hidden="true"></i></div></div>
-            </div>
-          </li>
-          <li class="cart-item">
-            <div>
-              <div class="cart-item__image"><a href="#"><img src="/Public/img/item_not_found.png" alt=""></a></div>
-              <div class="cart-item__name"><a href="#">Item</a></div>
-              <div class="cart-item__price"><a href="#">200 $</a></div>
-              <div class="cart-item__delete"><div><i class="fa fa-times" aria-hidden="true"></i></div></div>
-            </div>
-          </li>
-          <li class="cart-item">
-            <div>
-              <div class="cart-item__image"><a href="#"><img src="/Public/img/item_not_found.png" alt=""></a></div>
-              <div class="cart-item__name"><a href="#">Item</a></div>
-              <div class="cart-item__price"><a href="#">200 $</a></div>
-              <div class="cart-item__delete"><div><i class="fa fa-times" aria-hidden="true"></i></div></div>
-            </div>
-          </li>
-        </ul>
-        <div class="order">
-          <div class="order-wrapper">
-            <p>Total: </p><b>1000 $</b>
-          </div>
-          <button class="btn btn-buy">Proceed to checkout</button>
-        </div>
-      </section>
+      <div id="app">
+        <cart></cart>
+      </div>
     </div>
+  <script src="/Public/js/vue.js"></script>
 </main>
