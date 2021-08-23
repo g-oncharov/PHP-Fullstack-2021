@@ -46,13 +46,19 @@
               <div class="icon"><button><i class="fa fa-search fa-lg"></i></button></div>
             </form>
           </li>
-          <?php if (isset($isAuth) && $isAuth) :?>
-          <li><a href="/orders"><i class="fa fa-list-ul fa-lg"></i></a></li>
-          <li><a href="/logout"><i class="fa fa-sign-out fa-lg"></i></a></li>
-          <?php else :?>
-          <li><a href="/login"><i class="fa fa-user fa-lg"></i></a></li>
+
+
+          <?php if (isset($isAuth) && $isAuth) : ?>
+                <?php if (isset($isAdmin) && $isAdmin) : ?>
+                  <li><a href="/add"><i class="fa fa-plus fa-lg"></i></a></li>
+                <?php else : ?>
+                  <li><a href="/orders"><i class="fa fa-list-ul fa-lg"></i></a></li>
+                <?php endif; ?>
+            <li><a href="/logout"><i class="fa fa-sign-out fa-lg"></i></a></li>
+          <?php else : ?>
+            <li><a href="/login"><i class="fa fa-sign-in fa-lg"></i></a></li>
           <?php endif;?>
-          <li><a href="/cart"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
+            <li><a href="/cart"><i class="fa fa-shopping-cart fa-lg"></i></a></li>
         </ul>
       </div>
     </nav>

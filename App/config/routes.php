@@ -8,6 +8,16 @@ return [
         'regex' => true
     ],
     [
+        'url' => 'api/cart',
+        'controller' => 'api',
+        'action' => 'cart'
+    ],
+    [
+        'url' => 'api/user',
+        'controller' => 'api',
+        'action' => 'user'
+    ],
+    [
         'url' => 'api/phones',
         'controller' => 'api',
         'action' => 'category'
@@ -58,6 +68,16 @@ return [
         'action' => 'category'
     ],
     [
+        'url' => 'checkout-order',
+        'controller' => 'cart',
+        'action' => 'checkoutOrder'
+    ],
+    [
+        'url' => 'delete-from-cart',
+        'controller' => 'cart',
+        'action' => 'delete'
+    ],
+    [
         'url' => 'delete/([0-9]+)',
         'controller' => 'admin',
         'action' => 'delete',
@@ -85,6 +105,11 @@ return [
         'action' => 'search',
         'getKey' => 'search',
         'regex' => true
+    ],
+    [
+        'url' => 'buy',
+        'controller' => 'cart',
+        'action' => 'buy',
     ],
     [
         'url' => 'cart',
