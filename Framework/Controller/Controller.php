@@ -5,12 +5,14 @@ namespace Framework\Controller;
 use Controller\ErrorController;
 use Framework\Db\Db;
 use Framework\View\View;
+use Framework\Url\Url;
 use Model\Authentication;
 
 class Controller
 {
     public View $view;
     public Db $db;
+    public Url $url;
     public Authentication $auth;
 
     public function __construct()
@@ -18,11 +20,13 @@ class Controller
         $this->view = new View();
         $this->db = new Db();
         $this->auth = new Authentication();
+        $this->url = new Url();
 
         $isAuth = $this->auth->isAuth();
-        $status = $this->auth->getStatus();
+        $isAdmin = $this->auth->isAdmin();
+
         $this->view->set('isAuth', $isAuth);
-        $this->view->set('status', $status);
+        $this->view->set('isAdmin', $isAdmin);
 
         if (is_null($this->db->pdo)) {
             $errorController = new ErrorController();
