@@ -7,17 +7,15 @@ use Framework\Validator\Validator;
 
 class Authentication
 {
-    public bool $authorized;
-    public Session $session;
-    public User $user;
-    public string $error;
-    public Validator $validator;
+    private Session $session;
+    private User $user;
+    private Validator $validator;
+    private string $error;
 
     public function __construct()
     {
         $this->user = new User();
         $this->session = new Session();
-        $this->authorized = false;
         $this->validator = new Validator();
     }
 
@@ -50,30 +48,6 @@ class Authentication
         $this->session->set("login", $login, "user");
         $this->session->set("telephone", $telephone, "user");
         $this->session->set("status", $status, "user");
-    }
-
-    /**
-     * Authorization check.
-     * @return bool
-     */
-    public function isAuth(): bool
-    {
-        $this->session->start();
-        return $this->session->get("auth", "user") ?? false;
-    }
-
-    /**
-     * Administrator check.
-     * @return bool
-     */
-    public function isAdmin(): bool
-    {
-        $result = false;
-        $this->session->start();
-        if ($this->getStatus() === 10) {
-            $result = true;
-        }
-        return $result;
     }
 
     /**
@@ -172,6 +146,30 @@ class Authentication
         }
 
         $this->error = $msg;
+        return $result;
+    }
+
+    /**
+     * Authorization check.
+     * @return bool
+     */
+    public function isAuth(): bool
+    {
+        $this->session->start();
+        return $this->session->get("auth", "user") ?? false;
+    }
+
+    /**
+     * Administrator check.
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        $result = false;
+        $this->session->start();
+        if ($this->getStatus() === 10) {
+            $result = true;
+        }
         return $result;
     }
 

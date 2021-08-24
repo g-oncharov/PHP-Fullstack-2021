@@ -8,8 +8,8 @@ use Model\Product;
 
 class SearchController extends Controller
 {
-    protected Product $product;
-    protected Validator $validator;
+    private Product $product;
+    private Validator $validator;
 
     public function __construct()
     {

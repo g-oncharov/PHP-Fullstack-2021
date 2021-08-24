@@ -8,8 +8,8 @@ use Model\Orders;
 
 class CartController extends Controller
 {
-    public Session $session;
-    public Orders $orders;
+    private Session $session;
+    private Orders $orders;
 
     public function __construct()
     {

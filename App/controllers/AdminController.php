@@ -9,9 +9,9 @@ use Model\Admin;
 
 class AdminController extends Controller
 {
-    public Categories $categories;
-    public Product $product;
-    public Admin $admin;
+    private Categories $categories;
+    private Product $product;
+    private Admin $admin;
 
     public function __construct()
     {
