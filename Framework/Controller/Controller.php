@@ -10,10 +10,10 @@ use Model\Authentication;
 
 class Controller
 {
-    public View $view;
-    public Db $db;
-    public Url $url;
-    public Authentication $auth;
+    protected View $view;
+    protected Db $db;
+    protected Url $url;
+    protected Authentication $auth;
 
     public function __construct()
     {

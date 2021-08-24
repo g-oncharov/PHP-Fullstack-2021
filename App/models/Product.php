@@ -7,16 +7,16 @@ use Framework\ActiveRecordEntity\ActiveRecordEntity;
 class Product extends ActiveRecordEntity
 {
     /** @var string */
-    private string $title;
+    protected string $title;
 
     /** @var string */
-    private string $description;
+    protected string $description;
 
     /** @var int */
-    private int $price;
+    protected int $price;
 
     /** @var string */
-    private string $image;
+    protected string $image;
 
     /** @var ?string */
     protected ?string $category = null;

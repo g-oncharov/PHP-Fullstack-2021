@@ -10,11 +10,11 @@ use Model\User;
 
 class ApiController
 {
-    protected Product $product;
-    public Json $json;
-    public User $user;
-    public Url $url;
-    public Session $session;
+    private Product $product;
+    private Json $json;
+    private User $user;
+    private Url $url;
+    private Session $session;
 
     public function __construct()
     {

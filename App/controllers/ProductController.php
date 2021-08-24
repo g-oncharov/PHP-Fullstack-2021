@@ -3,18 +3,9 @@
 namespace Controller;
 
 use Framework\Controller\Controller;
-use Framework\Session\Session;
 
 class ProductController extends Controller
 {
-    protected Session $session;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->session = new Session();
-    }
-
     public function index()
     {
         $styles = ['index', 'productsSection', 'loader'];

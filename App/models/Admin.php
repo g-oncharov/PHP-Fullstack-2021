@@ -6,10 +6,10 @@ use Framework\Validator\Validator;
 
 class Admin
 {
-    public Validator $validator;
-    public Product $product;
+    private Validator $validator;
+    private Product $product;
     private string $error;
-    private string $imageName;
+    public string $imageName;
 
     public function __construct()
     {

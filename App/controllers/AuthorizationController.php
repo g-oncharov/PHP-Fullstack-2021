@@ -7,7 +7,7 @@ use Model\User;
 
 class AuthorizationController extends Controller
 {
-    protected User $user;
+    private User $user;
 
     public function __construct()
     {
