@@ -9,9 +9,9 @@ use Model\Orders;
 
 class OrderController extends Controller
 {
-    public Session $session;
-    public Orders $orders;
-    public Product $product;
+    private Session $session;
+    private Orders $orders;
+    private Product $product;
 
     public function __construct()
     {
