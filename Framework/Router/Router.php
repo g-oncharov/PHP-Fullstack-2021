@@ -7,8 +7,13 @@ use Exception;
 
 class Router
 {
+    /** @var mixed */
     protected $routes;
+
+    /** @var string */
     public string $controller;
+
+    /** @var string */
     public string $action;
 
     public function __construct()
@@ -17,14 +22,28 @@ class Router
         $this->routes = include_once($routesPath);
     }
 
-    private function getUrl()
+    /**
+     * Get data from get request
+     *
+     * @return string
+     */
+    private function getUrl(): string
     {
+        $result = "";
         if (!empty($_SERVER['REQUEST_URI'])) {
-            return trim($_SERVER['REQUEST_URI'], '/');
+            $result = trim($_SERVER['REQUEST_URI'], '/');
         }
+        return $result;
     }
 
-    public function urlGetRequestParser($str)
+
+    /**
+     * Get data from get request
+     *
+     * @param string $str
+     * @return mixed|string
+     */
+    public function urlGetRequestParser(string $str): string
     {
         if ((bool)strrpos($str, "/")) {
             $array = explode("/", $str);
@@ -34,7 +53,12 @@ class Router
         return explode("?", $str)[0];
     }
 
-    public function isGetRequest($urlPath)
+    /**
+     * Redirect from get request
+     *
+     * @param $urlPath
+     */
+    public function isGetRequest($urlPath): void
     {
         $result = false;
 
@@ -52,18 +76,26 @@ class Router
         }
     }
 
-    private function error404()
+    /** Throwing 404 error */
+    private function error404(): void
     {
         $this->controller = 'Controller\\ErrorController';
         $this->action = 'notFound';
     }
 
+    /**
+     * Parse controller name
+     *
+     * @param $controller
+     * @return string
+     */
     private function parse($controller): string
     {
         return 'Controller\\' . ucfirst($controller . 'Controller');
     }
 
-    private function load($controller, $action)
+    /** Launch controller and action */
+    private function load($controller, $action): void
     {
         $this->controller = $this->parse($controller);
         $this->action = $action;
@@ -75,6 +107,11 @@ class Router
         }
     }
 
+    /**
+     * Launch router
+     *
+     * @return bool
+     */
     public function run(): bool
     {
         $urlPath = $this->getUrl();

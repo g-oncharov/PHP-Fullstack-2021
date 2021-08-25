@@ -4,29 +4,42 @@ namespace Framework\Url;
 
 class Url
 {
+    /** Get last part url */
     public function getLastPartUrl()
     {
         $result = explode('/', $_SERVER['REQUEST_URI']);
         return end($result);
     }
 
-    public function parseSpaceUrl($str)
+    /**
+     * Parse space url
+     *
+     * @param string $str
+     * @return string
+     */
+    public function parseSpaceUrl(string $str): string
     {
         return preg_replace('/%20/', ' ', $str);
     }
 
-    public function goToHomePage()
+    /** Redirect to home page */
+    public function goToHomePage(): void
     {
         header("Location: /");
     }
-
-    public function goToPrevPage()
+    /** Redirect to previous page */
+    public function goToPrevPage(): void
     {
         $httpReferer = $_SERVER['HTTP_REFERER'] ?? '/';
         header("Location: $httpReferer");
     }
 
-    public function goToPage(string $page)
+    /**
+     * Redirect to specific page
+     *
+     * @param string $page
+     */
+    public function goToPage(string $page): void
     {
         header("Location: /$page");
     }

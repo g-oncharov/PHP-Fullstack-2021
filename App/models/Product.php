@@ -24,49 +24,37 @@ class Product extends ActiveRecordEntity
     /** @var ?int */
     protected ?int $categoryId = null;
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getCategory(): ?string
     {
         return $this->category;
     }
 
-
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getCategoryId(): ?int
     {
         return $this->category;
     }
-    /**
-     * @return string
-     */
+
+    /** @return string */
     public function getImage(): ?string
     {
         return $this->image;
@@ -88,22 +76,7 @@ class Product extends ActiveRecordEntity
         return $entities ? $entities[0] : null;
     }
 
-    /**
-     * @return static|null
-     */
-    public static function findLastId(): ?self
-    {
-        $sql = 'SELECT max(id) as id FROM products';
-        $entities = self::$db->query(
-            $sql,
-            Product::class
-        );
-        return $entities ? $entities[0] : null;
-    }
-
-    /**
-     * @return Product[]
-     */
+    /** @return Product[] */
     public static function findByTitle(string $title): ?array
     {
         $sql = 'SELECT * FROM products WHERE title LIKE :title ORDER BY id DESC;';
@@ -116,9 +89,7 @@ class Product extends ActiveRecordEntity
         );
     }
 
-    /**
-     * @return Product[]
-     */
+    /** @return Product[] */
     public static function findByCategory(string $title): ?array
     {
         $sql = 'SELECT products.id as id, products.title as title, 
@@ -133,6 +104,13 @@ class Product extends ActiveRecordEntity
         );
     }
 
+    /**
+     * @param string $title
+     * @param string $description
+     * @param int $price
+     * @param int $category_id
+     * @param string $image
+     */
     public static function insert(string $title, string $description, int $price, int $category_id, string $image): void
     {
         $sql = 'INSERT INTO products (title, description, price, category_id, image)
@@ -152,6 +130,7 @@ class Product extends ActiveRecordEntity
     }
 
 
+    /** @param int $id */
     public static function delete(int $id): void
     {
         $sql = 'DELETE FROM products WHERE id = :id';
@@ -163,6 +142,7 @@ class Product extends ActiveRecordEntity
         );
     }
 
+    /** @return string */
     protected static function getTableName(): string
     {
         return 'products';

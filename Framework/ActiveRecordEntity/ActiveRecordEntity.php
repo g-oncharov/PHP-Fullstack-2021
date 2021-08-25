@@ -15,35 +15,30 @@ abstract class ActiveRecordEntity
     /** @var string|null */
     protected ?string $updatedAt = null;
 
+    /** @var Db */
     public static Db $db;
 
-    /**
-     * @return int
-     */
+    public function __construct()
+    {
+        self::$db = new Db();
+    }
+
+    /** @return int */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getUpdatedAt(): ?string
     {
         return $this->updatedAt;
-    }
-
-    public function __construct()
-    {
-        self::$db = new Db();
     }
 
     /**
@@ -61,21 +56,41 @@ abstract class ActiveRecordEntity
         return $entities ? $entities[0] : null;
     }
 
+    /** @return static|null */
+    public static function findLastId(): ?self
+    {
+        $sql = 'SELECT max(id) as id FROM ' . static::getTableName();
+        $entities = self::$db->query(
+            $sql,
+            static::class
+        );
+        return $entities ? $entities[0] : null;
+    }
 
+    /**
+     * Convert not specified properties for the CamelCase
+     *
+     * @param string $name
+     * @param $value
+     */
     public function __set(string $name, $value)
     {
         $camelCaseName = $this->underscoreToCamelCase($name);
         $this->$camelCaseName = $value;
     }
 
+    /**
+     * Convert To CamelCase
+     *
+     * @param string $source
+     * @return string
+     */
     private function underscoreToCamelCase(string $source): string
     {
         return lcfirst(str_replace('_', '', ucwords($source, '_')));
     }
 
-    /**
-     * @return static[]
-     */
+    /** @return static[] */
     public static function findAll(): ?array
     {
         $sql = 'SELECT * FROM `' . static::getTableName() . '` ORDER BY id DESC;';

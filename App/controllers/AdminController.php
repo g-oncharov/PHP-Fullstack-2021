@@ -9,8 +9,13 @@ use Model\Admin;
 
 class AdminController extends Controller
 {
+    /** @var Categories */
     private Categories $categories;
+
+    /** @var Product */
     private Product $product;
+
+    /** @var Admin */
     private Admin $admin;
 
     public function __construct()
