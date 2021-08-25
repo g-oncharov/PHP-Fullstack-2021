@@ -36,9 +36,33 @@ class ApiController
 
     public function category()
     {
-        $category = ucfirst($this->url->getLastPartUrl());
-        $productsList = $this->product->findByCategory($category);
-        $this->json->getObjects($productsList, ['db', 'createdAt', 'updatedAt']);
+        $category = explode("/", $this->url->getUrl())[1];
+        $currentPage = explode("/", $this->url->getUrl());
+
+        if (count($currentPage) > 2) {
+            $currentPage = (int) $currentPage[2];
+        } else {
+            $currentPage = 1;
+        }
+
+        $pagesCount = $this->product->getPagesCount($category);
+
+        if ($currentPage > $pagesCount || $currentPage < 1) {
+            $currentPage = 1;
+        }
+        $productsList = $this->product->getPage($category, $currentPage);
+
+        $result = [
+            'pagesCount' => $pagesCount,
+        ];
+
+        foreach ($productsList as $item) {
+            $result['products'][] = $this->json->dismount(
+                $item,
+                ['db', 'createdAt', 'updatedAt', 'category', 'description', 'categoryId']
+            );
+        }
+        $this->json->getArrays($result);
     }
 
     public function product()

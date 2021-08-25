@@ -66,8 +66,9 @@ class Product extends ActiveRecordEntity
      */
     public static function findById(int $id): ?self
     {
-        $sql = 'SELECT products.id as id, products.title as title, description, price, categories.title as category, image
-                FROM products INNER JOIN categories ON products.category_id = categories.id WHERE products.id=:id;';
+        $sql = 'SELECT products.id as id, products.title as title, description, 
+                price, categories.title as category, image FROM products INNER JOIN categories 
+                ON products.category_id = categories.id WHERE products.id=:id;';
         $entities = self::$db->query(
             $sql,
             Product::class,
@@ -97,6 +98,46 @@ class Product extends ActiveRecordEntity
                 FROM products INNER JOIN categories ON products.category_id = categories.id
                 WHERE categories.title = :title ORDER BY products.id DESC;';
 
+        return self::$db->query(
+            $sql,
+            Product::class,
+            [':title' => $title]
+        );
+    }
+
+    /**
+     * @param string $title
+     * @param int $itemsPerPage
+     * @return int
+     */
+    public static function getPagesCount(string $title, int $itemsPerPage = 4): int
+    {
+        $sql = 'SELECT COUNT(products.id) as count
+                FROM products INNER JOIN categories 
+                ON products.category_id = categories.id
+                WHERE categories.title = :title;';
+        $result = self::$db->query(
+            $sql,
+            Product::class,
+            [':title' => $title]
+        );
+        return ceil($result[0]->count / $itemsPerPage);
+    }
+
+    /**
+     * @param string $title
+     * @param int $pageNum
+     * @param int $itemsPerPage
+     * @return array
+     */
+    public static function getPage(string $title, int $pageNum, int $itemsPerPage = 4): array
+    {
+
+        $offset = ($pageNum - 1) * $itemsPerPage;
+        $sql = "SELECT products.id as id, products.title as title, 
+                description, price, categories.title as category, image
+                FROM products INNER JOIN categories ON products.category_id = categories.id
+                WHERE categories.title = :title ORDER BY products.id DESC LIMIT $itemsPerPage OFFSET $offset;";
         return self::$db->query(
             $sql,
             Product::class,

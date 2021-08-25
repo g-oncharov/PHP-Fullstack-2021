@@ -24,6 +24,34 @@ const outputProductsList = (data, elem) => {
     }
 }
 
+const outputPagination = (length, elem) => {
+    let category = getFirstPartUrl();
+    let page = parseInt(getLastPartUrl());
+    if (isNaN(page)) {
+        page = 1;
+    }
+    let prevPage = page - 1;
+    let nextPage = page + 1;
+
+    if (prevPage < 1) {
+        prevPage = 1;
+    }
+    if (nextPage >= length) {
+        nextPage = length;
+    }
+
+    let html = `<li><a href="/${category}/${prevPage}" class="pagination__page-prev">< Prev</a></li>`;
+    for (let i = 0; i < length; i++) {
+        let page = i + 1;
+        html += `<li class="pagination__page-number"><a href="/${category}/${page}">${page}</a></li>`
+    }
+    html += `<li><a href="/${category}/${nextPage}" class="pagination__page-next">Next ></a></li>`;
+
+    document.querySelector(elem).innerHTML += html.trim();
+    document.querySelectorAll(`${elem} > .pagination__page-number`)[page - 1].classList.add('active');
+    document.querySelector(elem).classList.add('d-flex');
+}
+
 
 const outputCategoryTitle = title => {
     document.querySelector('.breadcrumb-item--category').innerText = title;
@@ -40,4 +68,9 @@ const outputProductTitle = (category, product) => {
 const getLastPartUrl = () => {
     let temp = window.location.href.split('/');
     return temp[temp.length - 1];
+}
+
+const getFirstPartUrl = () => {
+    let temp = window.location.href.split('/');
+    return temp[3];
 }

@@ -11,13 +11,13 @@
   <section class="product-section">
     <div class="container">
       <section class="products products--popular">
-        <h2>Phones</h2>
+        <h2><a href="/phones">Phones</a></h2>
         <ul class="products-list products-list--phones">
           <li class="product-item product-item--loader"><div class="loader">Loading...</div></li>
         </ul>
       </section>
       <section class="products products--new">
-        <h2>Tablets</h2>
+        <h2><a href="/tablets">Tablets</a></h2>
         <ul class="products-list products-list--tablets">
           <li class="product-item product-item--loader"><div class="loader">Loading...</div></li>
         </ul>
