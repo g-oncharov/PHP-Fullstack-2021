@@ -18,29 +18,34 @@ return [
         'action' => 'user'
     ],
     [
-        'url' => 'api/phones',
+        'url' => 'api/phones/([0-9]+)',
         'controller' => 'api',
-        'action' => 'category'
+        'action' => 'category',
+        'regex' => true
     ],
     [
-        'url' => 'api/watches',
+        'url' => 'api/watches/([0-9]+)',
         'controller' => 'api',
-        'action' => 'category'
+        'action' => 'category',
+        'regex' => true
     ],
     [
-        'url' => 'api/tablets',
+        'url' => 'api/tablets/([0-9]+)',
         'controller' => 'api',
-        'action' => 'category'
+        'action' => 'category',
+        'regex' => true
     ],
     [
-        'url' => 'api/notebooks',
+        'url' => 'api/notebooks/([0-9]+)',
         'controller' => 'api',
-        'action' => 'category'
+        'action' => 'category',
+        'regex' => true
     ],
     [
-        'url' => 'api/accessories',
+        'url' => 'api/accessories/([0-9]+)',
         'controller' => 'api',
-        'action' => 'category'
+        'action' => 'category',
+        'regex' => true
     ],
     [
         'url' => 'phones',
@@ -48,9 +53,21 @@ return [
         'action' => 'category'
     ],
     [
+        'url' => 'phones/([0-9]+)',
+        'controller' => 'product',
+        'action' => 'category',
+        'regex' => true
+    ],
+    [
         'url' => 'watches',
         'controller' => 'product',
         'action' => 'category'
+    ],
+    [
+        'url' => 'watches/([0-9]+)',
+        'controller' => 'product',
+        'action' => 'category',
+        'regex' => true
     ],
     [
         'url' => 'tablets',
@@ -58,14 +75,32 @@ return [
         'action' => 'category'
     ],
     [
+        'url' => 'tablets/([0-9]+)',
+        'controller' => 'product',
+        'action' => 'category',
+        'regex' => true
+    ],
+    [
         'url' => 'notebooks',
         'controller' => 'product',
         'action' => 'category'
     ],
     [
+        'url' => 'notebooks/([0-9]+)',
+        'controller' => 'product',
+        'action' => 'category',
+        'regex' => true
+    ],
+    [
         'url' => 'accessories',
         'controller' => 'product',
         'action' => 'category'
+    ],
+    [
+        'url' => 'accessories/([0-9]+)',
+        'controller' => 'product',
+        'action' => 'category',
+        'regex' => true
     ],
     [
         'url' => 'checkout-order',
