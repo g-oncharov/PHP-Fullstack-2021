@@ -10,15 +10,18 @@ use Model\Authentication;
 
 class Controller
 {
+    /** @var View */
     protected View $view;
-    protected Db $db;
+
+    /** @var Url */
     protected Url $url;
+
+    /** @var Authentication */
     protected Authentication $auth;
 
     public function __construct()
     {
         $this->view = new View();
-        $this->db = new Db();
         $this->auth = new Authentication();
         $this->url = new Url();
 
@@ -28,9 +31,10 @@ class Controller
         $this->view->set('isAuth', $isAuth);
         $this->view->set('isAdmin', $isAdmin);
 
-        if (is_null($this->db->pdo)) {
+        $db = new Db();
+        if (is_null($db->pdo)) {
             $errorController = new ErrorController();
-            $errorController->actionCustomError($this->db->error);
+            $errorController->customError($db->error);
         }
     }
 }
