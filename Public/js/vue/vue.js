@@ -59,7 +59,7 @@ const app = createApp({
             setTimeout(() => {
                 window.location.href = '/';
                 this.removeAll();
-            }, 5000);
+            }, 2000);
         }
 
     },

@@ -6,6 +6,31 @@ use ReflectionClass;
 
 class Json
 {
+
+    /**
+     * Remove unnecessary from the array
+     *
+     * @param array $array
+     * @param array $delete
+     * @return array
+     */
+    public function removeUnnecessary(array $array, array $delete = []): array
+    {
+        if (!empty($delete)) {
+            foreach ($delete as $elem) {
+                unset($array[$elem]);
+            }
+        }
+        return $array;
+    }
+
+    /**
+     * Convert object to array
+     *
+     * @param object $object
+     * @param array $delete
+     * @return array
+     */
     public function dismount(object $object, array $delete = []): array
     {
         $array = [];
@@ -19,25 +44,17 @@ class Json
             $property->setAccessible(false);
         }
 
-        if (!empty($delete)) {
-            foreach ($delete as $elem) {
-                unset($array[$elem]);
-            }
-        }
-        return $array;
-    }
-    public function removeUnnecessary(array $array, array $delete = []): array
-    {
-        if (!empty($delete)) {
-            foreach ($delete as $elem) {
-                unset($array[$elem]);
-            }
-        }
-        return $array;
+        return $this->removeUnnecessary($array, $delete);
     }
 
 
-    public function getObjects($items, array $delete = [])
+    /**
+     * Get objects in json format
+     *
+     * @param $items
+     * @param array $delete
+     */
+    public function getObjects($items, array $delete = []): void
     {
         header('Content-Type: application/json');
         $json = [];
@@ -47,25 +64,51 @@ class Json
         echo json_encode($json);
     }
 
-    public function getObject($item, array $delete = [])
+    /**
+     * Get object in json format
+     *
+     * @param $item
+     * @param array $delete
+     */
+    public function getObject($item, array $delete = []): void
     {
         header('Content-Type: application/json');
         $item = $this->dismount($item, $delete);
         echo json_encode($item);
     }
 
-    public function getArrays($item, array $delete = [])
+    /**
+     * Get arrays in json format
+     *
+     * @param $items
+     * @param array $delete
+     */
+
+    public function getArrays($items, array $delete = []): void
     {
         header('Content-Type: application/json');
-        $item = $this->removeUnnecessary($item, $delete);
-        echo json_encode($item);
+        $items = $this->removeUnnecessary($items, $delete);
+        echo json_encode($items);
     }
 
-    public function getArray($item, array $delete = [])
+    /**
+     * Get array in json format
+     *
+     * @param $item
+     * @param array $delete
+     */
+    public function getArray($item, array $delete = []): void
     {
         header('Content-Type: application/json');
         $item = ['items' => $item];
         echo json_encode($item);
+    }
+
+    /** Get empty in json format */
+    public function getEmpty(): void
+    {
+        header('Content-Type: application/json');
+        echo '{}';
     }
 
 }

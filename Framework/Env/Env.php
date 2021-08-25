@@ -20,6 +20,7 @@ class Env
         $this->path = $path;
     }
 
+    /** Loading data from an .env file */
     public function load(): void
     {
         if (!is_readable($this->path)) {

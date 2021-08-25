@@ -35,6 +35,8 @@ class Db
     }
 
     /**
+     * Execute sql query
+     *
      * @param string $sql
      * @param array $params
      * @param string $className

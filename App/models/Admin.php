@@ -6,9 +6,16 @@ use Framework\Validator\Validator;
 
 class Admin
 {
+    /** @var Validator */
     private Validator $validator;
+
+    /** @var Product */
     private Product $product;
+
+    /** @var string */
     private string $error;
+
+    /** @var string */
     public string $imageName;
 
     public function __construct()
@@ -17,12 +24,17 @@ class Admin
         $this->product = new Product();
     }
 
-    public function addImage()
+    /**
+     * Add photo to folder
+     *
+     * @return string
+     */
+    public function addImage(): string
     {
+        $outputMessage = '';
         if (isset($_FILES['image'])) {
             $fileTmpName = $_FILES['image']['tmp_name'];
             $errorCode = $_FILES['image']['error'];
-            $outputMessage = '';
             if ($errorCode !== UPLOAD_ERR_OK || !is_uploaded_file($fileTmpName)) {
                 $outputMessage = 'An unknown error occurred while uploading the file.';
             } else {
@@ -36,26 +48,35 @@ class Admin
                 if (filesize($fileTmpName) > $limitBytes) {
                     $outputMessage = 'Image size must not exceed 15 MB.';
                 }
-                $image = getimagesize($fileTmpName);
-                $name = md5_file($fileTmpName);
-                $extension = image_type_to_extension($image[2]);
-                $format = str_replace('jpeg', 'jpg', $extension);
 
-                if ($format != '.png' && $format != '.jpg') {
-                    $outputMessage = 'You can upload images only .jpg or .png format.';
-                }
-                $path = dirname(__DIR__, 2) . "/Public/products/";
-                $file = $name . $format;
-                $this->imageName = $file;
+                if (empty($outputMessage)) {
+                    $image = getimagesize($fileTmpName);
+                    $name = md5_file($fileTmpName);
+                    $extension = image_type_to_extension($image[2]);
+                    $format = str_replace('jpeg', 'jpg', $extension);
 
-                if (!move_uploaded_file($fileTmpName, $path . $file)) {
-                    $outputMessage = 'An error occurred while writing the image to the disc.';
+                    if ($format != '.png' && $format != '.jpg') {
+                        $outputMessage = 'You can upload images only .jpg or .png format.';
+                    }
+                    $path = dirname(__DIR__, 2) . "/Public/products/";
+                    $file = $name . $format;
+                    $this->imageName = $file;
+                    if (!move_uploaded_file($fileTmpName, $path . $file)) {
+                        $outputMessage = 'An error occurred while writing the image to the disc.';
+                    }
                 }
-                return $outputMessage;
             }
+        } else {
+            $outputMessage = 'An unknown error occurred while uploading the file.';
         }
+        return $outputMessage;
     }
 
+    /**
+     * Delete photo from folder
+     *
+     * @param string $fileName
+     */
     public function deleteImage(string $fileName): void
     {
         $path = dirname(__DIR__, 2) . "/Public/products/";
@@ -67,16 +88,22 @@ class Admin
     }
 
 
-    public function add($arr)
+    /**
+     * Add a product to the database
+     *
+     * @param array $array
+     * @return bool
+     */
+    public function add(array $array): bool
     {
         $result = false;
         $msg = '';
 
-        foreach ($arr as $elem) {
+        foreach ($array as $elem) {
             $elem = $this->validator->clean($elem);
         }
 
-        extract($arr, EXTR_OVERWRITE);
+        extract($array, EXTR_OVERWRITE);
 
         $condition = isset($title)
                      && isset($description)
@@ -116,6 +143,8 @@ class Admin
     }
     /**
      * Getting a error.
+     *
+     * @return false|string
      */
     public function getError()
     {

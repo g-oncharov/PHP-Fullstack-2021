@@ -4,19 +4,29 @@ namespace Framework\View;
 
 class View
 {
+    /**  @var array */
     protected array $data;
 
-    public function set($key, $value)
+
+    /**
+     * Set data for each view
+     *
+     * @param mixed $key
+     * @param mixed $value
+     */
+    public function set($key, $value): void
     {
         $this->data[$key] = $value;
     }
 
-    public function get($key)
-    {
-        return $this->data[$key];
-    }
-
-    public function render(string $layout, array $params, string $template = 'default')
+    /**
+     * Rendering the page view
+     *
+     * @param string $layout
+     * @param array $params
+     * @param string $template
+     */
+    public function render(string $layout, array $params, string $template = 'default'): void
     {
         $template = $_SERVER['DOCUMENT_ROOT'] . '/App/views/template/layouts/' . $template . '.php';
         extract($params);

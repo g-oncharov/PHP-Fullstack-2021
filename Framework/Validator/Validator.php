@@ -4,7 +4,13 @@ namespace Framework\Validator;
 
 class Validator
 {
-    public function clean($value): string
+    /**
+     * Clearing a string from scripts, tags and spaces
+     *
+     * @param string $value
+     * @return string
+     */
+    public function clean(string $value): string
     {
         $value = trim($value);
         $value = stripslashes($value);
@@ -12,7 +18,15 @@ class Validator
         return htmlspecialchars($value);
     }
 
-    public function checkLength($value, $max = 45, $min = 2): bool
+    /**
+     * Checking the length of a string
+     *
+     * @param string $value
+     * @param int $max
+     * @param int $min
+     * @return bool
+     */
+    public function checkLength(string $value, int $max = 45, int $min = 2): bool
     {
         $result = (mb_strlen($value) < $min || mb_strlen($value) > $max);
         return !$result;

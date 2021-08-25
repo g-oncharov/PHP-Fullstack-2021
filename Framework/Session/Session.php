@@ -7,6 +7,7 @@ class Session
 
     /**
      * Starts a session.
+     *
      * @return bool
      */
     public function start(): bool
@@ -21,6 +22,7 @@ class Session
 
     /**
      * Destroys the session.
+     *
      * @return void
      */
     public function destroy(): void
@@ -35,10 +37,12 @@ class Session
      *
      * @param mixed $key
      * @param mixed $value
+     * @param string $array
+     * @param bool $push
      * @return void
      */
 
-    public function set($key, $value, $array = '', $push = false): void
+    public function set($key, $value, string $array = '', bool $push = false): void
     {
         if ($array === '') {
             if ($push) {
@@ -60,7 +64,7 @@ class Session
      *
      * @param mixed $key
      */
-    public function get($key, $array = '')
+    public function get($key, string $array = '')
     {
         if ($array === '') {
             $result = $_SESSION[$key] ?? null;
@@ -75,9 +79,10 @@ class Session
      * Checks the value stored in the session by key.
      *
      * @param mixed $key
+     * @param string $array
      * @return bool
      */
-    public function contains($key, $array = ''): bool
+    public function contains($key, string $array = ''): bool
     {
         $result = false;
         if ($array === '') {
@@ -96,10 +101,11 @@ class Session
      * Removes the value stored in the session by key.
      *
      * @param mixed $key
+     * @param string $array
      * @return void
      */
 
-    public function delete($key, $array = ''): void
+    public function delete($key, string $array = ''): void
     {
         if ($array === '') {
             unset($_SESSION[$key]);
@@ -111,10 +117,10 @@ class Session
     /**
      * Sets the current session save path.
      *
-     * @param mixed $savePath
+     * @param string $savePath
      * @return void
      */
-    public function setSavePath($savePath): void
+    public function setSavePath(string $savePath): void
     {
         session_save_path($savePath);
     }
@@ -155,10 +161,10 @@ class Session
     /**
      * Sets the name for the current session.
      *
-     * @param $name
+     * @param string $name
      * @return void
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         session_name($name);
     }
@@ -175,7 +181,7 @@ class Session
     }
 
     /**
-     * CChecks if there is a cookies.
+     * Checks if there is a cookies.
      *
      * @return boolean
      */

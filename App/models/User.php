@@ -27,57 +27,43 @@ class User extends ActiveRecordEntity
     /** @var int */
     protected int $status;
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getLogin(): ?string
     {
         return $this->login;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getStatus(): ?int
     {
         return $this->status;
@@ -147,6 +133,7 @@ class User extends ActiveRecordEntity
         );
     }
 
+    /** @return string */
     protected static function getTableName(): string
     {
         return 'users';

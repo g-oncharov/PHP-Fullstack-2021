@@ -9,8 +9,13 @@ use Model\Orders;
 
 class OrderController extends Controller
 {
+    /** @var Session */
     private Session $session;
+
+    /** @var Orders */
     private Orders $orders;
+
+    /** @var Product */
     private Product $product;
 
     public function __construct()
