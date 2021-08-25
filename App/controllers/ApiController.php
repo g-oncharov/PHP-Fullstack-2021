@@ -10,11 +10,20 @@ use Model\User;
 
 class ApiController
 {
+    /** @var Product */
     private Product $product;
+
+    /** @var Json */
     private Json $json;
-    private User $user;
+
+    /** @var Url */
     private Url $url;
+
+    /** @var Session */
     private Session $session;
+
+    /** @var User */
+    protected User $user;
 
     public function __construct()
     {
@@ -46,8 +55,7 @@ class ApiController
         if (isset($user)) {
             $this->json->getArrays($user);
         } else {
-            header('Content-Type: application/json');
-            echo '{}';
+            $this->json->getEmpty();
         }
     }
 
@@ -58,8 +66,7 @@ class ApiController
         if (isset($cart)) {
             $this->json->getArray($cart);
         } else {
-            header('Content-Type: application/json');
-            echo '{}';
+            $this->json->getEmpty();
         }
     }
 }
