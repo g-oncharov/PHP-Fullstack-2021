@@ -7,9 +7,16 @@ use Framework\Validator\Validator;
 
 class Authentication
 {
+    /** @var Session */
     private Session $session;
+
+    /** @var User */
     private User $user;
+
+    /** @var Validator */
     private Validator $validator;
+
+    /** @var string */
     private string $error;
 
     public function __construct()
@@ -19,28 +26,26 @@ class Authentication
         $this->validator = new Validator();
     }
 
-    private function setUser($user, $by = 'login')
-    {
-        $this->session->start();
-        $this->session->set("auth", true, "user");
-        if ($by == 'login') {
-            $id = (int) $user->getId();
-            $firstName = $user->getFirstName();
-            $lastName = $user->getLastName();
-            $email = $user->getEmail();
-            $login = $user->getLogin();
-            $telephone = $user->getTelephone();
-            $status = $user->getStatus();
-        }
-        if ($by == 'register') {
-            $id = (int) $user['id'];
-            $firstName = $user['firstName'];
-            $lastName = $user['lastName'];
-            $email = $user['email'];
-            $login = $user['login'];
-            $telephone = $user['telephone'];
-            $status = 0;
-        }
+    /**
+     * Set user to session
+     *
+     * @param int $id
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $email
+     * @param string $login
+     * @param string $telephone
+     * @param int $status
+     */
+    private function setUser(
+        int $id,
+        string $firstName,
+        string $lastName,
+        string $email,
+        string $login,
+        string $telephone,
+        int $status
+    ): void {
         $this->session->set("id", $id, "user");
         $this->session->set("firstName", $firstName, "user");
         $this->session->set("lastName", $lastName, "user");
@@ -51,7 +56,48 @@ class Authentication
     }
 
     /**
+     * Set user to session after authorization
+     *
+     * @param object $user
+     */
+    private function setUserAfterLogin(object $user): void
+    {
+        $this->session->start();
+        $this->session->set("auth", true, "user");
+        $id = (int) $user->getId();
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $login = $user->getLogin();
+        $telephone = $user->getTelephone();
+        $status = $user->getStatus();
+
+        $this->setUser($id, $firstName, $lastName, $email, $login, $telephone, $status);
+    }
+
+    /**
+     * Set user to session after registration
+     *
+     * @param array $user
+     */
+    private function setUserAfterRegistration(array $user): void
+    {
+        $this->session->start();
+        $this->session->set("auth", true, "user");
+        $id = $user['id'] ;
+        $firstName = $user['firstName'];
+        $lastName = $user['lastName'];
+        $email = $user['email'];
+        $login = $user['login'];
+        $telephone = $user['telephone'];
+        $status = 0;
+
+        $this->setUser($id, $firstName, $lastName, $email, $login, $telephone, $status);
+    }
+
+    /**
      * Authorization process.
+     *
      * @param string $email
      * @param string $pass
      * @return bool
@@ -81,7 +127,7 @@ class Authentication
             $passFromDb = $this->user->findByEmail($email)->getPassword();
             if (!is_null($passFromDb) && password_verify($pass, $passFromDb)) {
                 $user = $this->user->findByEmail($email);
-                $this->setUser($user);
+                $this->setUserAfterLogin($user);
                 $result = true;
             } else {
                 $msg = 'Password is wrong';
@@ -92,6 +138,12 @@ class Authentication
         return $result;
     }
 
+    /**
+     * Registration process
+     *
+     * @param array $arr
+     * @return bool
+     */
     public function register(array $arr): bool
     {
         $result = false;
@@ -139,9 +191,11 @@ class Authentication
 
         if (empty($msg)) {
             $passHash = password_hash($pass, PASSWORD_BCRYPT);
+            $id = $this->user->findLastId()->getId() + 1;
             $arr['email'] = $emailValidate;
+            $arr['id'] = $id;
             $this->user->insert($firstName, $lastName, $emailValidate, $login, $passHash, $telephone);
-            $this->setUser($arr, 'register');
+            $this->setUserAfterRegistration($arr);
             $result = true;
         }
 
@@ -151,6 +205,7 @@ class Authentication
 
     /**
      * Authorization check.
+     *
      * @return bool
      */
     public function isAuth(): bool
@@ -161,6 +216,7 @@ class Authentication
 
     /**
      * Administrator check.
+     *
      * @return bool
      */
     public function isAdmin(): bool
@@ -173,6 +229,11 @@ class Authentication
         return $result;
     }
 
+    /**
+     * Getting status.
+     *
+     * @return int|null
+     */
     public function getStatus(): ?int
     {
         $this->session->start();
@@ -180,7 +241,9 @@ class Authentication
     }
 
     /**
-     * Getting a error.
+     * Getting error.
+     *
+     * @return false|string
      */
     public function getError()
     {
@@ -193,6 +256,7 @@ class Authentication
 
     /**
      * Log оut.
+     *
      * @return void
      */
     public function logOut(): void
