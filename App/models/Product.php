@@ -110,7 +110,7 @@ class Product extends ActiveRecordEntity
      * @param int $itemsPerPage
      * @return int
      */
-    public static function getPagesCount(string $title, int $itemsPerPage = 4): int
+    public static function getPagesCount(string $title, int $itemsPerPage = 8): int
     {
         $sql = 'SELECT COUNT(products.id) as count
                 FROM products INNER JOIN categories 
@@ -130,7 +130,7 @@ class Product extends ActiveRecordEntity
      * @param int $itemsPerPage
      * @return array
      */
-    public static function getPage(string $title, int $pageNum, int $itemsPerPage = 4): array
+    public static function getPage(string $title, int $pageNum, int $itemsPerPage = 8): array
     {
 
         $offset = ($pageNum - 1) * $itemsPerPage;
