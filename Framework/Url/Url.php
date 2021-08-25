@@ -4,11 +4,32 @@ namespace Framework\Url;
 
 class Url
 {
+    /**
+     * Get data from get request
+     *
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        $result = "";
+        if (!empty($_SERVER['REQUEST_URI'])) {
+            $result = trim($_SERVER['REQUEST_URI'], '/');
+        }
+        return $result;
+    }
+
     /** Get last part url */
     public function getLastPartUrl()
     {
-        $result = explode('/', $_SERVER['REQUEST_URI']);
+        $result = explode("/", $this->getUrl());
         return end($result);
+    }
+
+    /** Get penultimate part url */
+    public function getPenultimatePartUrl()
+    {
+        $result = explode("/", $this->getUrl());
+        return $result[count($result) - 2];
     }
 
     /**
