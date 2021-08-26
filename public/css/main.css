@@ -3,7 +3,7 @@
 /* Fredoka One */
 @font-face {
     font-family: 'Fredoka One';
-    src: url("/Public/fonts/fredokaOne/fredokaOneRegular.ttf") format("opentype");
+    src: url("/public/fonts/fredokaOne/fredokaOneRegular.ttf") format("opentype");
     font-weight: 400;
     font-display: swap;
 }
@@ -12,35 +12,35 @@
 
 @font-face {
     font-family: 'Quicksand';
-    src: url("/Public/fonts/quicksand/quicksandLight.ttf") format("opentype");
+    src: url("/public/fonts/quicksand/quicksandLight.ttf") format("opentype");
     font-weight: 300;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url("/Public/fonts/quicksand/quicksandRegular.ttf") format("opentype");
+    src: url("/public/fonts/quicksand/quicksandRegular.ttf") format("opentype");
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url("/Public/fonts/quicksand/quicksandMedium.ttf") format("opentype");
+    src: url("/public/fonts/quicksand/quicksandMedium.ttf") format("opentype");
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url("/Public/fonts/quicksand/quicksandSemiBold.ttf") format("opentype");
+    src: url("/public/fonts/quicksand/quicksandSemiBold.ttf") format("opentype");
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Quicksand';
-    src: url("/Public/fonts/quicksand/quicksandBold.ttf") format("opentype");
+    src: url("/public/fonts/quicksand/quicksandBold.ttf") format("opentype");
     font-weight: 700;
     font-display: swap;
 }

@@ -10,5 +10,5 @@
         <cart></cart>
       </div>
     </div>
-  <script src="/Public/js/vue.js"></script>
+  <script src="/public/js/vue.js"></script>
 </main>

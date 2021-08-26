@@ -6,20 +6,20 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Apple Shop</title>
-  <link rel="shortcut icon" href="/Public/img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/Public/css/libs/normalize.min.css">
-  <link rel="stylesheet" href="/Public/css/libs/fontAwesome.min.css">
-  <link rel="stylesheet" href="/Public/css/main.css">
+  <link rel="shortcut icon" href="/public/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/public/css/libs/normalize.min.css">
+  <link rel="stylesheet" href="/public/css/libs/fontAwesome.min.css">
+  <link rel="stylesheet" href="/public/css/main.css">
     <?php if (!empty($styles)) : ?>
         <?php foreach ($styles as $style) : ?>
-        <link rel="stylesheet" href="/Public/css/<?= $style ?>.css">
+        <link rel="stylesheet" href="/public/css/<?= $style ?>.css">
         <?php endforeach; ?>
     <?php endif; ?>
 </head>
 <body>
 <header class="header">
   <div class="header__wrapper container">
-    <div class="logo"><a href="/"><img src="/Public/img/logo.png" alt=""></a></div>
+    <div class="logo"><a href="/"><img src="/public/img/logo.png" alt=""></a></div>
     <nav class="nav-bar">
       <div class="site-navigation">
         <ul>

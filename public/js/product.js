@@ -7,7 +7,7 @@ const outputProduct = data => {
     let html = `          
                   <div class="product-about__item">
                     <div class="product-about__image">
-                      <img src="/Public/products/${data.image}" alt="">
+                      <img src="/public/products/${data.image}" alt="">
                     </div>
                     <div class="product-about__text">
                       <p class="product-about__name">${data.title}</p>

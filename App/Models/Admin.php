@@ -70,7 +70,7 @@ class Admin
                     if ($format != '.png' && $format != '.jpg') {
                         $outputMessage = 'You can upload images only .jpg or .png format.';
                     }
-                    $path = dirname(__DIR__, 2) . "/Public/products/";
+                    $path = dirname(__DIR__, 2) . "/public/products/";
                     $file = $name . $format;
                     $this->imageName = $file;
                     if (!move_uploaded_file($fileTmpName, $path . $file)) {
@@ -91,7 +91,7 @@ class Admin
      */
     public function deleteImage(string $fileName): void
     {
-        $path = dirname(__DIR__, 2) . "/Public/products/";
+        $path = dirname(__DIR__, 2) . "/public/products/";
         $filePath = $path . $fileName;
 
         if (file_exists($filePath)) {

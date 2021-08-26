@@ -3,8 +3,8 @@
     "autoload": {
         "psr-4": {
             "Framework\\": "Framework/",
-            "Controller\\": "App/controllers/",
-            "Model\\": "App/models/"
+            "Controller\\": "App/Controllers/",
+            "Model\\": "App/Models/"
         }
     },
     "authors": [

@@ -22,7 +22,7 @@
                         <div>
                           <a href="/product/<?= $item->getId() ?>">
                             <div class="search-item__image">
-                              <img src="/Public/products/<?= $item->getImage() ?>" alt="">
+                              <img src="/public/products/<?= $item->getImage() ?>" alt="">
                             </div>
                             <div class="search-item__name"><?= $item->getTitle() ?></div>
                             <div class="search-item__price"><?= $item->getPrice() ?> $</div>

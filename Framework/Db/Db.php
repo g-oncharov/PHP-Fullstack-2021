@@ -16,7 +16,7 @@ class Db
 
     public function __construct()
     {
-        $dotenv = new Env('../App/config/.env');
+        $dotenv = new Env('../App/Config/.env');
         $dotenv->load();
 
         $connection = getenv("DB_CONNECTION");

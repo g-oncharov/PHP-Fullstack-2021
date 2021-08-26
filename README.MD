@@ -19,7 +19,7 @@ server {
   	
  	location ~* ^.+.(js|json|css|png|jpg|jpeg|gif|svg|webp|ico|txt|woff|woff2|ttf|otf|eot)$ {}
 	location / {
-		rewrite ^(.*)$ /Public/index.php;
+		rewrite ^(.*)$ /public/index.php;
 	}
 
 

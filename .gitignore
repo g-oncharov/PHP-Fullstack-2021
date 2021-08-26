@@ -1,5 +1,5 @@
 .idea/
 /vendor/
 /log/
-App/config/.env
+App/Config/.env
 /node_modules/

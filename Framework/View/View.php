@@ -28,13 +28,13 @@ class View
      */
     public function render(string $layout, array $params, string $template = 'default'): void
     {
-        $template = $_SERVER['DOCUMENT_ROOT'] . '/App/views/template/layouts/' . $template . '.php';
+        $template = $_SERVER['DOCUMENT_ROOT'] . '/App/Views/Templates/Base/' . $template . '.php';
         extract($params);
         if (!empty($this->data)) {
             extract($this->data);
         }
         $correctParams = true;
-        $layout = $_SERVER['DOCUMENT_ROOT'] . '/App/views/' . $layout . '.php';
+        $layout = $_SERVER['DOCUMENT_ROOT'] . '/App/Views/Layouts/' . $layout . '.php';
 
         foreach ($params as $item) {
             if (is_null($item)) {

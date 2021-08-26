@@ -11,7 +11,7 @@ const outputProductsList = (data, elem) => {
                         <li class="product-item">
                                 <a href="/product/${data[i].id}">
                                   <div class="product-item__image">
-                                    <img src="/Public/products/${data[i].image}" alt="">
+                                    <img src="/public/products/${data[i].image}" alt="">
                                   </div>
                                   <div class="product-item__text">
                                     <p class="product-item__name">${data[i].title}</p>

@@ -44,11 +44,11 @@
     color: white;
 }
 .advantages__item--delivery {
-    background-image: url("/Public/img/delivery.png");
+    background-image: url("/public/img/delivery.png");
 }
 .advantages__item--returns{
-    background-image: url("/Public/img/returns.png");
+    background-image: url("/public/img/returns.png");
 }
 .advantages__item--verification {
-    background-image: url("/Public/img/verification.png");
+    background-image: url("/public/img/verification.png");
 }

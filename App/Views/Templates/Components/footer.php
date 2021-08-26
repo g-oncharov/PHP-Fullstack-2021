@@ -33,9 +33,9 @@
 </footer>
 <?php if (!empty($scripts)) : ?>
     <?php foreach ($scripts as $script) : ?>
-    <script src="/Public/js/<?= $script ?>.js"></script>
+    <script src="/public/js/<?= $script ?>.js"></script>
     <?php endforeach; ?>
 <?php endif; ?>
-<script src="/Public/js/dropdown.js"></script>
+<script src="/public/js/dropdown.js"></script>
 </body>
 </html>

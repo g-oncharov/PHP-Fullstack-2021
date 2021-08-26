@@ -1,7 +1,7 @@
 <template>
   <li class="cart-item">
     <div>
-      <div class="cart-item__image"><a :href="'/product/' + id"><img :src="'/Public/products/' + image" :alt="title"></a></div>
+      <div class="cart-item__image"><a :href="'/product/' + id"><img :src="'/public/products/' + image" :alt="title"></a></div>
       <div class="cart-item__name"><a href="#">{{title}}</a></div>
       <div class="cart-item__price"><a href="#">{{price * amount}} $</a></div>
       <div class="cart-item__amount">
