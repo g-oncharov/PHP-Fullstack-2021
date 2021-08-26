@@ -166,6 +166,19 @@ class Authentication
             $msg = 'Fill in all the fields';
         } else {
             $emailValidate = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+            $emailIsUsed = (bool) count((array) $this->user->findByEmail($emailValidate));
+            $loginIsUsed = (bool) count((array) $this->user->findByLogin($login));
+
+            if ($emailIsUsed) {
+                $msg = 'Email is used';
+            }
+            if ($loginIsUsed) {
+                $msg = 'Login is used';
+            }
+            if (!$emailValidate && !$this->validator->checkLength($emailValidate, 255, 6)) {
+                $msg = 'Email is invalid (6 to 255 characters)';
+            }
             if (!$emailValidate && !$this->validator->checkLength($emailValidate, 255, 6)) {
                 $msg = 'Email is invalid (6 to 255 characters)';
             }
