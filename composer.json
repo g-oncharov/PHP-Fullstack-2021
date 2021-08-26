@@ -1,0 +1,20 @@
+{
+    "name": "leon/mysite.com",
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "Controller\\": "App/Controllers/",
+            "Model\\": "App/Models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexey Goncharov",
+            "email": "80ka96@gmail.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^3.6",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    }
+}

@@ -1,0 +1,16 @@
+.main--category-page .product-section{
+    background-color: #816eca;
+    background-image: linear-gradient(0deg, rgba(220,89,136,1) 0%, rgba(103,91,153,1) 100%);
+}
+
+.main--category-page .products h2 {
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 50px;
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+
+.main--category-page .loader {
+    color: #ffffff;
+}

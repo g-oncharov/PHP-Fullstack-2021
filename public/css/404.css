@@ -1,0 +1,56 @@
+.e404-section {
+    /*font-family: 'Quicksand', Arial, sans-serif;*/
+    padding-bottom: 60px;
+}
+.e404-section h2 {
+    color: #fff;
+    font-size: 50px;
+    font-family: "Fredoka One", Arial, sans-serif;
+    padding-top: 0;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.e404-section__wrapper {
+    background-color: white;
+    margin: 0 auto;
+    padding: 60px;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.e404-section .oops-block {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.e404-section .oops-block h2 {
+    font-size: 80px;
+    margin-left: -60px;
+    color: #816eca;
+}
+
+.e404-section .text-block {
+    width: 70%;
+}
+.e404-section .text-block h3 {
+    font-size: 24px;
+    padding-bottom: 40px;
+}
+.e404-section .text-block p {
+    font-family: 'Quicksand', Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 40px;
+}
+.e404-section .text-block a {
+    font-family: 'Quicksand', Arial, sans-serif;
+    font-weight: 600;
+    color: #372C50;
+    transition: color 0.3s;
+}
+
+.e404-section .text-block a:hover {
+    color: #644d8c;
+}

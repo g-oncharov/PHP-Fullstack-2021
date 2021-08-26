@@ -1,1 +1,5 @@
 .idea/
+/vendor/
+/log/
+App/Config/.env
+/node_modules/

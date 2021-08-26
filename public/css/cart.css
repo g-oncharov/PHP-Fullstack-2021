@@ -1,5 +1,6 @@
 .cart {
     padding-bottom: 30px;
+    position: relative;
 }
 .cart-item {
     background-color: #fff;
@@ -20,6 +21,10 @@
     border-radius: 6px;
     overflow: hidden;
 }
+.cart-item .cart-item__image img {
+    max-width: auto;
+    height: 100%;
+}
 .cart-item .cart-item__delete > div {
     background-color: #ff0000;
     color: #fff;
@@ -30,6 +35,14 @@
 }
 .cart-item .cart-item__delete > div:hover {
     background-color: #d90000;
+}
+.cart-item .cart-item__amount button {
+    border: none;
+    background-color: transparent;
+    color: #2c2f50;
+}
+.cart-item .cart-item__name {
+    width: 300px;
 }
 
 .order-wrapper {

@@ -1,0 +1,50 @@
+.signin-section {
+    font-family: 'Quicksand', Arial, sans-serif;
+    padding-bottom: 60px;
+}
+.signin-section form {
+    background-color: white;
+    width: 600px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    border-radius: 6px;
+}
+.signin-section h2 {
+    color: #fff;
+    font-size: 50px;
+    font-family: "Fredoka One", Arial, sans-serif;
+    padding-top: 0;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.signin-section .login-link {
+    display: block;
+}
+.signin-section .login-link{
+    color: #372C50;
+    transition: color 0.5s;
+}
+.signin-section .login-link:hover{
+    color: #644d8c;
+}
+
+.signin-section__input-item {
+    margin-top: 30px;
+}
+
+.signin-section__input-list b {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.signin-section__footer .btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.signin-section__footer .login-link{
+    text-align: center;
+    font-weight: 600;
+}
