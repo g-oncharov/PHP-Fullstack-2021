@@ -119,6 +119,12 @@ return [
         'regex' => true
     ],
     [
+        'url' => 'update/([0-9]+)',
+        'controller' => 'admin',
+        'action' => 'update',
+        'regex' => true
+    ],
+    [
         'url' => 'add',
         'controller' => 'admin',
         'action' => 'add',

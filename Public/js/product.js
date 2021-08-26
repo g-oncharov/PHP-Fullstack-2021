@@ -29,11 +29,14 @@ getData(`api/product/${id}`)
         getData(`api/user`)
             .then((data) => {
                 if (data.auth) {
-                    let buttonDeleteElem = `<a href="delete/${productData.id}" class="product-about__btn btn-red btn">Delete</a>`;
+                    let buttonsAdmin = `<div class="product-about__btn-button--admin">
+                                            <a href="/delete/${productData.id}" class="product-about__btn btn-red btn">Delete</a>
+                                            <a href="/update/${productData.id}" class="product-about__btn btn-green btn">Update</a>
+                                            </div>`;
                     document.querySelector('.product-about__btn-button').innerHTML = buttonElem;
 
                     if (data.status === 10) {
-                        document.querySelector('.product-about__btn-button').innerHTML += buttonDeleteElem;
+                        document.querySelector('.product-about__btn-button').innerHTML += buttonsAdmin.trim();
                     }
                     let button = document.querySelector('.product-about__btn');
                     button.addEventListener("click", function(e) {
