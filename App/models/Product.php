@@ -51,7 +51,7 @@ class Product extends ActiveRecordEntity
     /** @return int */
     public function getCategoryId(): ?int
     {
-        return $this->category;
+        return $this->categoryId;
     }
 
     /** @return string */
@@ -67,8 +67,9 @@ class Product extends ActiveRecordEntity
     public static function findById(int $id): ?self
     {
         $sql = 'SELECT products.id as id, products.title as title, description, 
-                price, categories.title as category, image FROM products INNER JOIN categories 
-                ON products.category_id = categories.id WHERE products.id=:id;';
+                price, categories.title as category, categories.id as category_id, 
+                image FROM products INNER JOIN categories ON products.category_id = categories.id 
+                WHERE products.id=:id;';
         $entities = self::$db->query(
             $sql,
             Product::class,
@@ -161,6 +162,39 @@ class Product extends ActiveRecordEntity
             $sql,
             Product::class,
             [
+                ':title' => $title,
+                ':description' => $description,
+                ':price' => $price,
+                ':category_id' => $category_id,
+                ':image' => $image,
+            ]
+        );
+    }
+
+    /**
+     * @param int $id
+     * @param string $title
+     * @param string $description
+     * @param int $price
+     * @param int $category_id
+     * @param string $image
+     */
+    public static function update(
+        int $id,
+        string $title,
+        string $description,
+        int $price,
+        int $category_id,
+        string $image
+    ): void {
+        $sql = 'UPDATE products SET title = :title, description = :description, price = :price, 
+                                    category_id = :category_id, image = :image WHERE id = :id;';
+
+        self::$db->query(
+            $sql,
+            Product::class,
+            [
+                ':id' => $id,
                 ':title' => $title,
                 ':description' => $description,
                 ':price' => $price,
