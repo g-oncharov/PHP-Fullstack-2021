@@ -166,6 +166,19 @@ a:visited {
     background-color: #cc1452;
 }
 
+.btn-green {
+    border: 0;
+    padding: 12px 35px;
+    background-color: #009688;
+    border-radius: 25px;
+    color: white !important;
+    text-transform: uppercase;
+    display: inline;
+}
+.btn-green:hover  {
+    background-color: #008073;
+}
+
 
 .overflow-h {
     overflow: hidden;
