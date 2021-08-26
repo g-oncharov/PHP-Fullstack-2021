@@ -51,7 +51,7 @@
             <div class="add-section__input-item add-section__input-item--preview">
               <label><b>Preview: </b></label>
               <div class="preview-block__image">
-                <img src="<?= $image ?>" alt="preview">
+                <img src="/public/products/<?= $image ?>" alt="preview">
               </div>
             </div>
 
