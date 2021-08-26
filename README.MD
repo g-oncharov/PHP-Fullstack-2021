@@ -29,3 +29,25 @@ server {
 	}
 
 }
+```
+After that enter the command
+
+```
+$ composer install
+```
+Then create a file .env in 'App/Config/'
+
+```
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_DATABASE=base
+DB_USERNAME=user
+DB_PASSWORD=pass
+```
+
+### Administrator login details
+
+```
+Email: 80ka96@gmail.com
+Password: pass
+```
