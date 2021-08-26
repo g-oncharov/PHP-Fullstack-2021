@@ -16,6 +16,18 @@ class Admin
     private string $error;
 
     /** @var string */
+    public string $title;
+
+    /** @var string */
+    public string $description;
+
+    /** @var string */
+    public string $price;
+
+    /** @var string */
+    public string $category;
+
+    /** @var string */
     public string $imageName;
 
     public function __construct()
@@ -87,14 +99,12 @@ class Admin
         }
     }
 
-
     /**
-     * Add a product to the database
-     *
+     * Validate form
      * @param array $array
      * @return bool
      */
-    public function add(array $array): bool
+    private function validate(array $array): bool
     {
         $result = false;
         $msg = '';
@@ -106,14 +116,16 @@ class Admin
         extract($array, EXTR_OVERWRITE);
 
         $condition = isset($title)
-                     && isset($description)
-                     && isset($price)
-                     && isset($category);
+            && isset($description)
+            && isset($price)
+            && isset($category);
 
         if (!$condition) {
             $msg = 'Fill in all the fields';
         } else {
-            $msg = $this->addImage();
+            if (!isset($this->imageName)) {
+                $msg = $this->addImage();
+            }
             if (!$this->validator->checkLength($title)) {
                 $msg = 'Title is invalid (2 to 45 characters)';
             }
@@ -132,15 +144,61 @@ class Admin
         }
 
         if (empty($msg)) {
-            $price = (int) $price;
-            $category = (int) $category;
-            $image = $this->imageName;
-            $this->product->insert($title, $description, $price, $category, $image);
+            $this->title = $title;
+            $this->description = $description;
+            $this->price = (int) $price;
+            $this->category = (int) $category;
             $result = true;
+        } else {
+            $this->error = $msg;
         }
-        $this->error = $msg;
         return $result;
     }
+
+    /**
+     * Add a product to the database
+     *
+     * @param array $array
+     * @return bool
+     */
+    public function add(array $array): bool
+    {
+        $result = false;
+        if ($this->validate($array)) {
+            $this->product->insert($this->title, $this->description, $this->price, $this->category, $this->imageName);
+            $result = true;
+        }
+        return $result;
+    }
+
+    /**
+     * Update a product to the database
+     *
+     * @param array $array
+     * @return bool
+     */
+    public function update(array $array): bool
+    {
+        $result = false;
+
+        if (empty($_FILES['image']['name'])) {
+            $this->imageName = $array['image'];
+        }
+
+        if ($this->validate($array)) {
+            $this->product->update(
+                $array['id'],
+                $this->title,
+                $this->description,
+                $this->price,
+                $this->category,
+                $this->imageName
+            );
+            $result = true;
+        }
+        return $result;
+    }
+
     /**
      * Getting a error.
      *
